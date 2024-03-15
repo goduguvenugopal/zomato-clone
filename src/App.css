@@ -1,9 +1,11 @@
 .header {
-  background-image: url("image/zomato-bg.png");
+  background-image: url("image/zomato-bg.jpeg");
   height: 90vh;
   background-size: cover;
   background-position: center;
   width: 100vw;
+ 
+
 }
 .logo-img {
   height: 35px;
