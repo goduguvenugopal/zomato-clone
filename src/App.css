@@ -1,42 +1,154 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.header {
+  background-image: url("image/zomato-bg.png");
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+}
+.logo-img {
+  height: 35px;
+  margin-right: 10px;
+}
+.zomato-heading {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.form-main-div {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-left: 0px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width: 768px) {
+  .search-card {
+    height: 55px;
+    margin-top: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 9px;
+    width: 600px;
+    cursor: pointer;
   }
-  to {
-    transform: rotate(360deg);
+  .search-sub-div1 {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .search-sub-div2 {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 290px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .search-card {
+    margin-top: 20px;
+    height: 130px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+    border-radius: 9px;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .search-sub-div1 {
+    background-color: white;
+
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 49px;
+    width: 290px;
+  }
+
+  .search-sub-div2 {
+    background-color: white;
+
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 49px;
+    width: 290px;
+  }
+  .search-icon {
+    margin-left: 55px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.input-box {
+  border: none;
+  text-transform: capitalize;
+}
+
+.sub-bt {
+  border: none;
+  background-color: white;
+}
+
+.non-map-card {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding-top: 30px;
+}
+
+.card-img {
+  width: 287px;
+  height: 250px;
+}
+.card-b {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  height: 140px;
+}
+
+.card1 {
+  border: 1px solid rgb(231, 227, 227);
+  border-radius: 10px;
+  height:410px;
+}
+.card1:hover {
+  box-shadow: 0px 0px 6px rgb(161, 159, 159);
+  cursor: pointer;
+}
+.explore {
+  color: rgb(96, 96, 94);
+}
+
+.bg-comp{
+background-color: white;
+margin-top: 90px;
+}
+
+/* @media only screen and (max-width:769px){
+  .card1 {
+    width:100%;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  .card-img {
+    width: 100%;
+    height: 250px;
+  }
+} */
