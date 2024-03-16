@@ -54,7 +54,7 @@ const SearchSection = () => {
 
                 <input
                   type="text"
-                  placeholder="Kurnool"
+                  placeholder="Location"
                   className="input-box"
                 />
 
