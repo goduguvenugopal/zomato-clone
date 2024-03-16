@@ -1,0 +1,65 @@
+ export const states = [
+      "Andhra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chhattisgarh",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Odisha",
+      "Punjab",
+      "Rajasthan",
+      "Sikkim",
+      "Tamil Nadu",
+      "Telangana",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand",
+      "West Bengal",
+      "Andaman and Nicobar Islands",
+      "Chandigarh",
+      "Dadra and Nagar Haveli and Daman and Diu",
+      "Delhi",
+      "Ladakh",
+      "Lakshadweep",
+      "Puducherry"
+    ];
+ 
+    // foods Array
+
+export const foodList = [
+      { name: 'Pizza', url: '/pizza' },
+      { name: 'Burger', url: '/burger' },
+      { name: 'Pasta', url: '/pasta' },
+      { name: 'Sushi', url: '/sushi' },
+      { name: 'Tacos', url: '/tacos' },
+      { name: 'Sandwich', url: '/sandwich' },
+      { name: 'Salad', url: '/salad' },
+      { name: 'Ramen', url: '/ramen' },
+      { name: 'Steak', url: '/steak' },
+      { name: 'Chicken Curry', url: '/chicken-curry' },
+      { name: 'Samosa', url: '/samosa' },
+      { name: 'Ice Cream', url: '/ice-cream' },
+      { name: 'Donuts', url: '/donuts' },
+      { name: 'Tiramisu', url: '/tiramisu' },
+      { name: 'Pad Thai', url: '/pad-thai' },
+      { name: 'Lasagna', url: '/lasagna' },
+      { name: 'Falafel', url: '/falafel' },
+      { name: 'Chocolate Cake', url: '/chocolate-cake' },
+      { name: 'Biryani', url: '/biryani' },
+      { name: 'Fish and Chips', url: '/fish-and-chips' }
+    ];
+    
+ 
+    

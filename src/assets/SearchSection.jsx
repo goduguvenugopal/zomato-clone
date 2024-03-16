@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import MainComp from "./MainComp";
 import MapComp from "./MapComp";
+import {states} from './data'
 
 const SearchSection = () => {
+  const [state , setStaet] = useState(states)
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
 
@@ -43,12 +45,10 @@ const SearchSection = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   />
-                  <ul className="dropdown-menu mt-2 p-2">
-                    <li>Hyderabad</li>
-                    <li>Bengaluru</li>
-                    <li>Delhi</li>
-                    <li>Mumbai</li>
-                    <li>Kerala</li>
+                  <ul className="dropdown-menu mt-1 p-2" style={{overflow:'scroll',height:'250px',width:'270px'}}>
+                  {states.map((item)=>(
+                    <li className="list-states">{item}</li>
+                  ))}
                   </ul>
                 </div>
 
@@ -69,11 +69,14 @@ const SearchSection = () => {
                   placeholder="Search for Food"
                   className="input-box"
                 />
-                <button type="submit" className="sub-bt">
+                <div style={{width:'60px'}} className=" d-flex justify-content-between align-items-center"> 
+                <span class="material-symbols-outlined">mic</span>
+                <button type="submit" className=" sub-bt">
                   <span className="material-symbols-outlined pt-1 search-icon">
                     search
                   </span>
                 </button>
+                </div>
               </div>
             </div>
           </form>

@@ -28,7 +28,15 @@
   font-weight: 500;
 }
 
- 
+ .list-states{
+  padding: 2px;
+ }
+ .list-states:hover{
+  background-color: rgb(16, 113, 241);
+  border-radius: 3px;
+  color: white;
+  
+ }
 
 @media only screen and (min-width: 768px) {
   .search-card {
@@ -56,6 +64,10 @@
     justify-content: space-between;
     align-items: center;
     width: 290px;
+  }
+   .search-icon {
+   margin-top: 2px;
+    font-size: 28px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -97,8 +109,9 @@
     width: 290px;
   }
   .search-icon {
-    /* margin-left: 55px; */
-  }
+    margin-top: 2px;
+     font-size: 27px;
+   }
 }
 
 .input-box {

@@ -13,7 +13,7 @@ const MapComp = ({ data }) => {
           <div className="card1" key={item.id} style={{ width: "18rem" }}>
             <img src={item.recipe.image} className="card-img" alt="..." />
             <div className="card-b">
-              <h5 className="card-title">{item.recipe.label}</h5>
+              <h6 className="card-title">{item.recipe.label}</h6>
               <p className="card-text">
                 Total Amount Of Calories: {Math.round(item.recipe.calories)}
               </p>
