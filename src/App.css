@@ -20,7 +20,9 @@
   width: 100vw;
   margin-left: 0px;
 }
-
+.home-text:hover{
+  color: red;
+}
 .list-states {
   padding: 2px;
 }
