@@ -5,6 +5,7 @@ import MapComp from "./MapComp";
 import {states} from './data'
 
 const SearchSection = () => {
+   
   const [state , setStaet] = useState(states)
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
@@ -46,7 +47,7 @@ const SearchSection = () => {
                     aria-expanded="false"
                   />
                   <ul className="dropdown-menu mt-1 p-2" style={{overflow:'scroll',height:'250px',width:'270px'}}>
-                  {states.map((item)=>(
+                  {state.map((item)=>(
                     <li className="list-states">{item}</li>
                   ))}
                   </ul>

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../App.css";
 import { foodList } from "./data";
-import OrderList from "./OrderList";
- 
-
-export const cartContext = React.createContext();
+import { cartContext } from "./Navbar";
+import Cart from "./Cart";
 
 const MainComp = () => {
+  const mainbt = useContext(cartContext);
   const [food, setFood] = useState(foodList);
   const [cart, setCart] = useState([]);
 
@@ -16,36 +15,37 @@ const MainComp = () => {
   };
   return (
     <>
-      <div className="container pt-4">
-        <h3 className=" ">Collections</h3>
-        <h5 className="explore">
-          Explore curated lists of top restaurants, cafes, pubs, and bars in
-          India, based on trends
-        </h5>
-      </div>
-
-      <div className="pb-5 pt-3 non-map-card">
-        {food.map((foodItem, index) => (
-          <div key={index} className="card1" style={{ width: "18rem" }}>
-            <img src={foodItem.url} className="card-img" alt="..." />
-            <div className="card-b">
-              <h5 className="card-title">{foodItem.name}</h5>
-              <p className="card-text">{foodItem.title}</p>
-              <button
-                onClick={() => filterFunc(foodItem)}
-                className="btn btn-primary"
-              >
-                Order Now
-              </button>
-            </div>
+      {!mainbt ? (
+        <div className="">
+          <div className="container pt-4">
+            <h3 className=" ">Collections</h3>
+            <h5 className="explore">
+              Explore curated lists of top restaurants, cafes, pubs, and bars in
+              India, based on trends
+            </h5>
           </div>
-        ))}
-      </div>
-      <div className="context-card "> 
-      <cartContext.Provider value={cart}>
-     <OrderList/>
-      </cartContext.Provider>
-      </div>
+
+          <div className="pb-5 pt-3 non-map-card">
+            {food.map((foodItem, index) => (
+              <div key={index} className="card1" style={{ width: "18rem" }}>
+                <img src={foodItem.url} className="card-img" alt="..." />
+                <div className="card-b">
+                  <h5 className="card-title">{foodItem.name}</h5>
+                  <p className="card-text">{foodItem.title}</p>
+                  <button
+                    onClick={() => filterFunc(foodItem)}
+                    className="btn btn-primary"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <Cart orders = {cart}/>
+      )}
     </>
   );
 };

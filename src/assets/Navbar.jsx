@@ -1,14 +1,19 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import "../App.css";
 import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Footer from "./Footer";
 
+export const cartContext = createContext();
 const Navbar = () => {
   const [check, setCheck] = useState(true);
-
+  const [order, setOrder] = useState(false);
   const checkFunc = () => {
     setCheck(!check);
+  };
+
+  const orderFunc = () => {
+    setOrder(!order);
   };
   return (
     <div className="header  pt-2">
@@ -30,17 +35,24 @@ const Navbar = () => {
             <span className="navbar-toggler-icon " />
           </button>
           <div className="collapse navbar-collapse  " id="navbarNavAltMarkup">
-            <div className="navbar-nav m-auto">
-              <Link
-                to="/"
-                className="nav-link active text-white home-text"
-                aria-current="page"
+            <div className="navbar-nav mt-2 m-auto">
+              <h5 onClick={orderFunc} className="">
+                <Link
+                  to="/"
+                  className="nav-link active text-white home-text "
+                  aria-current="page"
+                >
+                  Home
+                </Link>
+              </h5>
+              <h5
+                onClick={orderFunc}
+                style={{ cursor: "pointer" }}
+                className="home-text nav-link text-white"
               >
-                Home
-              </Link>
-              <Link to="/orders" className="home-text nav-link text-white">
-                Orders
-              </Link>
+                Cart
+              </h5>
+
               <h5
                 className="nav-link text-white home-text"
                 data-bs-toggle="modal"
@@ -248,7 +260,10 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <SearchSection />
+      <cartContext.Provider value={order}>
+        <SearchSection />
+      </cartContext.Provider>
+      <Footer />
     </div>
   );
 };
