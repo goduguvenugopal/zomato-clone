@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import "../App.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Orders = (props) => {
   const [cart, setCart] = useState(props.orders);
 
+  const notify = () => toast("Successfully Removed Item  from Cart");
+
   const removeFunc = (del) => {
-    const remove = cart.filter((rem) => rem.name !== del.name);
-    setCart(remove);
+    const removed = cart.filter((rem) => rem.name !== del.name);
+    setCart(removed);
+    notify();
+    console.log("After removal:", removed);
   };
 
   return (
     <>
+      <ToastContainer />
       {cart && cart.length > 0 ? (
         <div className="container pt-4 ">
           <h3 className=" ">Cart Items</h3>
@@ -50,7 +57,7 @@ const Orders = (props) => {
         ) : (
           <div className="text-center">
             <h5 className="mb-3">No Items In The Cart </h5>
-            <button className="btn btn-primary ">Click Home</button>
+            <button className="btn btn-primary ">Click Home To Go Back</button>
           </div>
         )}
       </div>

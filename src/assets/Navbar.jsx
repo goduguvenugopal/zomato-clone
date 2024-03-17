@@ -19,8 +19,8 @@ const Navbar = () => {
     <div className="header  pt-2">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container">
-          <img src="image/logo.png" className="rounded logo-img" alt="zomato" />
-          <a className="navbar-brand text-white fs-3 fw-bold" href="#">
+          <a href="" > <img src="image/logo.png" className="rounded logo-img" alt="zomato" /></a>
+          <a className="navbar-brand text-white fs-3 fw-bold" href="">
             Zomato
           </a>
           <button

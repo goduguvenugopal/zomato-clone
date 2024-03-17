@@ -3,6 +3,8 @@ import "../App.css";
 import { foodList } from "./data";
 import { cartContext } from "./Navbar";
 import Cart from "./Cart";
+import {ToastContainer ,toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainComp = () => {
   const mainbt = useContext(cartContext);
@@ -14,10 +16,13 @@ const MainComp = () => {
     const filtered = foodList.find((item) => item.name === selectedfFood.name);
     setCart([...cart, { ...filtered }]);
     setAddedToCart({ ...addedToCart, [selectedfFood.name]: true });
+    notify()
   };
-
+  const notify = () => toast("Item Added Successfully To The Cart");
+   
   return (
     <>
+    <ToastContainer/>
       {!mainbt ? (
         <div className="">
           <div className="container pt-4">
