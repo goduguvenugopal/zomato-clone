@@ -40,7 +40,7 @@ export const states = [
 
 export const foodList = [
   { name: "Idly", title: "Andhra ,Indian", url: "/image/17.jpg" },
-  { name: "Dosa", title: "South Indian", url: "/image/16.jpg" },
+  { name: "Masala Dosa", title: "South Indian", url: "/image/16.jpg" },
   { name: "Meals", title: "South , Indian", url: "/image/15.jpg" },
   { name: "Dosa", title: "Andhra,Indian Food", url: "/image/14.jpg" },
   { name: "Rice dal", title: "Andhra ,Food", url: "/image/13.jpeg" },

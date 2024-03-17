@@ -8,11 +8,14 @@ const MainComp = () => {
   const mainbt = useContext(cartContext);
   const [food, setFood] = useState(foodList);
   const [cart, setCart] = useState([]);
+  const [addedToCart, setAddedToCart] = useState({});
 
   const filterFunc = (selectedfFood) => {
     const filtered = foodList.find((item) => item.name === selectedfFood.name);
     setCart([...cart, { ...filtered }]);
+    setAddedToCart({ ...addedToCart, [selectedfFood.name]: true });
   };
+
   return (
     <>
       {!mainbt ? (
@@ -32,19 +35,26 @@ const MainComp = () => {
                 <div className="card-b">
                   <h5 className="card-title">{foodItem.name}</h5>
                   <p className="card-text">{foodItem.title}</p>
-                  <button
-                    onClick={() => filterFunc(foodItem)}
-                    className="btn btn-primary"
-                  >
-                    Order Now
-                  </button>
+
+                  {addedToCart[foodItem.name] ? (
+                    <button className="btn btn-primary" disabled>
+                      Added
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => filterFunc(foodItem)}
+                      className="btn btn-primary"
+                    >
+                      Add To Cart
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
           </div>
         </div>
       ) : (
-        <Cart orders = {cart}/>
+        <Cart orders={cart} />
       )}
     </>
   );

@@ -4,8 +4,6 @@
   background-size: cover;
   background-position: center;
   width: 100vw;
- 
-
 }
 .logo-img {
   height: 35px;
@@ -23,16 +21,14 @@
   margin-left: 0px;
 }
 
- 
- .list-states{
+.list-states {
   padding: 2px;
- }
- .list-states:hover{
+}
+.list-states:hover {
   background-color: rgb(16, 113, 241);
   border-radius: 3px;
   color: white;
-  
- }
+}
 
 @media only screen and (min-width: 768px) {
   .search-card {
@@ -61,8 +57,8 @@
     align-items: center;
     width: 290px;
   }
-   .search-icon {
-   margin-top: 2px;
+  .search-icon {
+    margin-top: 2px;
     font-size: 28px;
   }
 }
@@ -106,8 +102,8 @@
   }
   .search-icon {
     margin-top: 2px;
-     font-size: 27px;
-   }
+    font-size: 27px;
+  }
 }
 
 .input-box {
@@ -146,7 +142,7 @@
 .card1 {
   border: 1px solid rgb(202, 197, 197);
   border-radius: 10px;
-  height:410px;
+  height: 410px;
 }
 .card1:hover {
   box-shadow: 0px 0px 6px rgb(161, 159, 159);
@@ -156,17 +152,23 @@
   color: rgb(96, 96, 94);
 }
 
-.bg-comp{
-background-color: white;
-margin-top: 90px;
+.bg-comp {
+  background-color: white;
+  margin-top: 90px;
 }
 
-/* @media only screen and (max-width:769px){
-  .card1 {
-    width:100%;
-  }
-  .card-img {
-    width: 100%;
-    height: 250px;
-  }
-} */
+.order-bt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-bt {
+  font-weight: 500;
+  box-sizing: border-box;
+   
+}
+.delete-icon {
+  font-size: 14px;
+  margin-right: 4px;
+  
+}
