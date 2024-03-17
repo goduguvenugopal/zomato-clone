@@ -6,13 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 const Orders = (props) => {
   const [cart, setCart] = useState(props.orders);
 
-  const notify = () => toast("Successfully Removed Item  from Cart");
+  const notify = () => toast("Successfully Removed Item from Cart");
 
   const removeFunc = (del) => {
-    const removed = cart.filter((rem) => rem.name !== del.name);
-    setCart(removed);
+    const updatedCart = cart.filter((rem) => rem.name !== del.name);
+    setCart(updatedCart);
     notify();
-    console.log("After removal:", removed);
+    console.log("After removal:", updatedCart);
   };
 
   return (
@@ -42,7 +42,7 @@ const Orders = (props) => {
                     onClick={() => removeFunc(cartItem)}
                     className=" order-bt btn btn-danger "
                   >
-                    <span className="material-symbols-outlined  delete-icon ">
+                    <span className="material-symbols-outlined delete-icon">
                       delete
                     </span>
                     Remove
