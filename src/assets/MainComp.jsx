@@ -30,19 +30,28 @@ const MainComp = () => {
             <h3 className=" ">Collections</h3>
             <div className="scroll-card">
               {scrollList.map((item, index) => (
-                <div key={index} className=" overflow-card">{item}</div>
+                <div key={index} className=" overflow-card">
+                  {item}
+                </div>
               ))}
             </div>
           </div>
 
           <div className="pb-5 pt-3 non-map-card">
             {food.map((foodItem, index) => (
-              <div key={index} className="card1">
+              <div key={index} className="card1" style={{ height: "390px" }}>
                 <img src={foodItem.url} className="card-img" alt="..." />
                 <div className="card-b">
                   <h5 className="card-title">{foodItem.name}</h5>
-                  <p className="card-text">{foodItem.title}</p>
-
+                  <div className="pb-2 d-flex justify-content-between align-items-center">
+                    <h6 className="card-text title-txt">{foodItem.title}</h6>
+                    <div className=" d-flex justify-content-between align-items-center">
+                    <span className="material-symbols-outlined rupee-icon">
+                      currency_rupee
+                    </span>
+                    <h6 className="title-txt">{foodItem.cost} for one</h6>
+                    </div>
+                  </div>
                   {addedToCart[foodItem.name] ? (
                     <button className="btn btn-primary" disabled>
                       Added

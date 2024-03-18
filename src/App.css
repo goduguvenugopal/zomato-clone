@@ -220,7 +220,7 @@
   line-height: 1;
   box-shadow: 0 0 6px rgb(201, 197, 197);
   background-color: white;
-   
+ 
   
 }
 
@@ -298,4 +298,14 @@
 
 .face-icon:hover {
   color: blue;
+}
+
+.title-txt{
+  color: rgb(111, 112, 113);
+}
+.rupee-icon{
+  font-size: 17px;
+  margin-bottom: 5px;
+  font-weight:bold;
+  color: rgb(111, 112, 113);
 }
