@@ -32,7 +32,7 @@ const Orders = (props) => {
       <div className="pb-5 pt-4 non-map-card">
         {cart && cart.length > 0 ? (
           cart.map((cartItem, index) => (
-            <div key={index} className="card1" style={{ width: "18rem" }}>
+            <div key={index} className="card1 "   >
               <img src={cartItem.url} className="card-img" alt="..." />
               <div className="card-b">
                 <h5 className="card-title">{cartItem.name}</h5>

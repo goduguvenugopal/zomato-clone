@@ -3,12 +3,17 @@ import axios from "axios";
 import MainComp from "./MainComp";
 import MapComp from "./MapComp";
 import {states} from './data'
+ 
 
 const SearchSection = () => {
    
   const [state , setStaet] = useState(states)
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
+
+  
+   
+      
 
   const accessKey = "80961f9e5f7483595ad990f02d1e6425";
   const id = "de66da03";
@@ -71,7 +76,7 @@ const SearchSection = () => {
                   className="input-box"
                 />
                 <div style={{width:'60px'}} className=" d-flex justify-content-between align-items-center"> 
-                <span class="material-symbols-outlined">mic</span>
+                <span    class="material-symbols-outlined">mic</span>
                 <button type="submit" className=" sub-bt">
                   <span className="material-symbols-outlined pt-1 search-icon">
                     search

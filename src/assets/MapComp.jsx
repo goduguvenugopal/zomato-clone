@@ -10,7 +10,7 @@ const MapComp = ({ data }) => {
       </div>
       <div className="pb-5 pt-3 non-map-card">
         {data.map((item) => (
-          <div className="card1" key={item.id} style={{ width: "18rem" }}>
+          <div className="card1" key={item.id}  >
             <img src={item.recipe.image} className="card-img" alt="..." />
             <div className="card-b">
               <h6 className="card-title">{item.recipe.label}</h6>

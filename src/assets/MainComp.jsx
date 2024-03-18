@@ -35,7 +35,7 @@ const MainComp = () => {
 
           <div className="pb-5 pt-3 non-map-card">
             {food.map((foodItem, index) => (
-              <div key={index} className="card1" style={{ width: "18rem" }}>
+              <div key={index} className="card1" >
                 <img src={foodItem.url} className="card-img" alt="..." />
                 <div className="card-b">
                   <h5 className="card-title">{foodItem.name}</h5>
