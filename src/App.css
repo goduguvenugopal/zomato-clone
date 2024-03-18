@@ -218,7 +218,7 @@
   font-weight: 500;
   cursor: pointer;
   line-height: 1;
-  box-shadow: 0 0 6px rgb(201, 197, 197);
+  /* box-shadow: 0 0 6px rgb(201, 197, 197); */
   background-color: white;
  
   
@@ -308,4 +308,38 @@
   margin-bottom: 5px;
   font-weight:bold;
   color: rgb(111, 112, 113);
+}
+
+.order-img{
+  width: 130px;
+  border-radius: 15px;
+}
+
+.meals-card{
+  margin-left: 10px;
+}
+
+.countbt{
+   
+  font-size: 18px;
+  color: red;
+  
+}
+
+.count{
+   margin-top: 5px;
+}
+.counter-card{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+background-color: white;
+border: 1px solid red;
+width: 100px;
+border-radius: 10px;
+
+}
+.counter-card:hover{
+  border-color: blue;
+  cursor: pointer;
 }
