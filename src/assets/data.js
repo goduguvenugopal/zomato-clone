@@ -61,3 +61,22 @@ export const foodList = [
   { name: "Fish Fry", title: "Andhra,Fish Food", url: "/image/2.jpeg" },
   
 ];
+
+
+export const scroll = [
+
+  "Sort",
+  "Nearest",
+  "Rating 4.0+",
+  "Great Offers",
+  "Previously Orderd",
+  "Pure Veg",
+  "Non Veg",
+  "Best Offers",
+  "Special Offers",
+  "Starters",
+  "Dishes",
+  "Restuarants",
+  "Biryani",
+  "Frequent Orders"
+]

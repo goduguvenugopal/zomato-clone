@@ -20,7 +20,7 @@
   width: 100vw;
   margin-left: 0px;
 }
-.home-text:hover{
+.home-text:hover {
   color: red;
 }
 .list-states {
@@ -74,7 +74,7 @@
     column-gap: 20px;
     padding-top: 30px;
   }
-  
+
   .card-img {
     width: 287px;
     height: 250px;
@@ -85,7 +85,13 @@
     padding: 15px;
     height: 140px;
   }
-  
+  .card2{
+    border: 1px solid rgb(202, 197, 197);
+    border-radius: 10px;
+    height: 410px;
+    width: 18rem;
+    
+  }
   .card1 {
     border: 1px solid rgb(202, 197, 197);
     border-radius: 10px;
@@ -140,9 +146,16 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-     /* row-gap: 10px; */
+    /* row-gap: 10px; */
     column-gap: 20px;
     padding-top: 30px;
+  }
+  .card2 {
+    border: 1px solid rgb(202, 197, 197);
+    border-radius: 10px;
+    height: 410px;
+    width: 100%;
+    margin: 15px;
   }
   .card1 {
     border: 1px solid rgb(202, 197, 197);
@@ -167,7 +180,6 @@
 .input-box {
   border: none;
   text-transform: capitalize;
-  padding-left: 10px;
 }
 
 .sub-bt {
@@ -175,14 +187,45 @@
   background-color: white;
 }
 
- 
- 
 .card1:hover {
   box-shadow: 0px 0px 6px rgb(161, 159, 159);
   cursor: pointer;
 }
 .explore {
   color: rgb(96, 96, 94);
+}
+.scroll-card {
+ 
+  display: flex;
+  justify-content: space-between ;
+  flex-wrap: nowrap;
+  overflow-x:auto ;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.overflow-card {
+  border: 1px solid rgb(168, 165, 165);
+  padding: 10px;
+  border-radius: 10px;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: 0 0 6px rgb(201, 197, 197);
+  background-color: white;
+   
+  
+}
+
+.overflow-card:hover{
+  border-color: red;
 }
 
 .bg-comp {
@@ -198,21 +241,16 @@
 .order-bt {
   font-weight: 500;
   box-sizing: border-box;
-   
 }
 .delete-icon {
   font-size: 14px;
   margin-right: 4px;
-  
 }
-* footer section  */
-
-.footer-section {
+* footer section */ .footer-section {
   text-align: center;
 }
 
 .logo-footer-card {
-  
   display: flex;
   flex-direction: row;
   width: 150px;
@@ -236,13 +274,13 @@
 }
 
 .footer-links {
-  color:black;
+  color: black;
   text-decoration: none;
   margin-right: 20px;
 }
 
 .face-icon-2 {
-  color:black;
+  color: black;
   height: 25px;
   width: 25px;
   margin-left: 25px;
@@ -257,7 +295,6 @@
 .face-icon-2:hover {
   color: blue;
 }
-
 
 .face-icon:hover {
   color: blue;
