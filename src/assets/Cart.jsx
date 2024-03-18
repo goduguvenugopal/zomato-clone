@@ -119,7 +119,7 @@ const Orders = (props) => {
               <div className="modal-body">
                 {order.map((item, index) => (
                   <div className="card p-2" key={index}>
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
                       <div className="d-flex justify-content-between align-items-center">
                         <img src={item.url} className="order-img" alt="..." />
                         <div className="meals-card">
