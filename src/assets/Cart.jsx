@@ -107,7 +107,7 @@ const Orders = (props) => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="staticBackdropLabel">
-                 Place Order
+                  Place Order
                 </h5>
                 <button
                   type="button"
@@ -135,7 +135,7 @@ const Orders = (props) => {
                       </div>
 
                       <div className=" d-flex flex-column  align-items-center ">
-                        <h4 className="">Add Item </h4>
+                        <h4 className="">Add </h4>
                         <div className="counter-card">
                           <span
                             onClick={() => decreFunc(item)}
@@ -155,14 +155,91 @@ const Orders = (props) => {
                         </div>
                       </div>
                     </div>
+                    <hr />
+                    <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                      <div className=" d-flex justify-content-between align-items-center">
+                        <div className="meals-card">
+                          <h4 className="">Veg Soup</h4>
+
+                          <div className="d-flex justify-content-start align-items-center">
+                            <span className="material-symbols-outlined rupee-icon">
+                              currency_rupee
+                            </span>
+                            <h6 className="title-txt">80</h6>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className=" d-flex flex-column  align-items-center ">
+                        <h4 className="">Add </h4>
+                        <div className="counter-card">
+                          <span
+                            onClick={() => decreFunc(item)}
+                            class="material-symbols-outlined countbt"
+                          >
+                            remove
+                          </span>
+
+                          <h6 className="count">{count}</h6>
+
+                          <span
+                            onClick={() => increFunc(item)}
+                            class="material-symbols-outlined countbt"
+                          >
+                            add
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="d-flex align-items-center">
+                      <span class="material-symbols-outlined ">timer</span>
+                      <h6 className="count">Delivery in 29 mintues</h6>
+                    </div>
+                    <hr />
+                    <div className="d-flex align-items-center">
+                      <span class="material-symbols-outlined">home</span>
+                      <h6 className="count">
+                        Delivery at <b>Home</b>{" "}
+                      </h6>
+                    </div>
+                    <hr />
+                    <div className="d-flex align-items-center">
+                      <span class="material-symbols-outlined">call</span>
+                      <h6 className="count">venugopal,9681841581</h6>
+                    </div>
+                    <hr />
+                    <div className="d-flex align-items-center">
+                      <span class="material-symbols-outlined">description</span>
+                      <h6 className="count">
+                        Total Bill{" "}
+                        <span className="material-symbols-outlined rupee-icon">
+                          currency_rupee
+                        </span>{" "}
+                        788
+                      </h6>
+                      </div>
+                      <h6  className="">Including All Taxes, Charges & donation </h6>
+                    
                   </div>
                 ))}
               </div>
               <div className="modal-footer">
-                
+                <div className="d-flex flex-row justify-content-between align-items-center"> 
+                <div className="d-flex flex-column align-items-center">
+                     
+                      <h6 className="count">
+                          
+                        <span className="material-symbols-outlined rupee-icon">
+                          currency_rupee
+                        </span> 799  <br/>
+                        Total Bill
+                      </h6>
+                      </div>
                 <button type="button" className="btn btn-primary">
                   Place Order
                 </button>
+                </div>
               </div>
             </div>
           </div>
