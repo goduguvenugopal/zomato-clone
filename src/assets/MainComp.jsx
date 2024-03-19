@@ -13,12 +13,17 @@ const MainComp = () => {
   const [cart, setCart] = useState([]);
   const [addedToCart, setAddedToCart] = useState({});
 
+// items adding in the cart function 
+
   const filterFunc = (selectedfFood) => {
     const filtered = foodList.find((item) => item.name === selectedfFood.name);
-    setCart([...cart, { ...filtered }]);
+    setCart([...cart, { ...filtered, counti: 1 }]);
+
+    // addcart button function 
     setAddedToCart({ ...addedToCart, [selectedfFood.name]: true });
     notify();
   };
+  // tostify function 
   const notify = () => toast("Item Added Successfully To The Cart");
 
   return (
@@ -46,10 +51,10 @@ const MainComp = () => {
                   <div className="pb-2 d-flex justify-content-between align-items-center">
                     <h6 className="card-text title-txt">{foodItem.title}</h6>
                     <div className=" d-flex justify-content-between align-items-center">
-                    <span className="material-symbols-outlined rupee-icon">
-                      currency_rupee
-                    </span>
-                    <h6 className="title-txt">{foodItem.cost} for one</h6>
+                      <span className="material-symbols-outlined rupee-icon">
+                        currency_rupee
+                      </span>
+                      <h6 className="title-txt">{foodItem.cost} for one</h6>
                     </div>
                   </div>
                   {addedToCart[foodItem.name] ? (

@@ -344,3 +344,26 @@ border-radius: 10px;
   border-color: blue;
   cursor: pointer;
 }
+
+.timer-icon{
+font-size: 18px;
+margin-bottom: 7px;
+ margin-right: 6px;
+}
+
+
+.timer-txt{
+  font-size: 15px;
+  margin-top: 2px;
+  color: rgb(76, 77, 78);
+}
+
+
+.place-card{
+  border: 1px solid rgb(174, 172, 172);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+ 

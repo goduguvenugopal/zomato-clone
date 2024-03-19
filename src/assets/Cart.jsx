@@ -7,9 +7,10 @@ const Orders = (props) => {
   const [cart, setCart] = useState(props.orders);
   const [order, setOrder] = useState([]);
   const [count, setCount] = useState(1);
+  const [soup, setSoup] = useState(0);
 
   const notify = () => toast("Successfully Removed Item from Cart");
-
+  // remove items in cart functions
   const removeFunc = (del) => {
     const updatedCart = cart.filter((rem) => rem.name !== del.name);
     setCart(updatedCart);
@@ -17,18 +18,37 @@ const Orders = (props) => {
     console.log("After removal:", updatedCart);
   };
 
+  // placing order function
+
   const placeOrder = (order) => {
     const ordered = cart.find((item) => item.name === order.name);
     setOrder([ordered]);
     setCount(0);
   };
 
-  const increFunc = () => {
-    // Increment count by 1
+  // price increasing function
+  const increFunc = (product) => {
+    const updated = order.map((check) => {
+      if (check.name === product.name) {
+        check.counti = product.counti + 1;
+      }
+      return check;
+    });
+    setOrder([...updated]);
+
     setCount(count + 1);
   };
-  const decreFunc = () => {
-    // Increment count by 1
+
+  // price decreasing function
+  const decreFunc = (product) => {
+    const updated = order.map((check) => {
+      if (check.name === product.name) {
+        check.counti = product.counti - 1;
+      }
+      return check;
+    });
+    setOrder([...updated]);
+
     setCount(count - 1);
   };
 
@@ -92,7 +112,9 @@ const Orders = (props) => {
           </div>
         )}
       </div>
+
       <>
+        {/* placing order modal code  */}
         {/* Modal */}
         <div
           className="modal fade"
@@ -118,7 +140,7 @@ const Orders = (props) => {
               </div>
               <div className="modal-body">
                 {order.map((item, index) => (
-                  <div className="card p-2" key={index}>
+                  <div className="place-card" key={index}>
                     <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
                       <div className="d-flex justify-content-between align-items-center">
                         <img src={item.url} className="order-img" alt="..." />
@@ -144,7 +166,7 @@ const Orders = (props) => {
                             remove
                           </span>
 
-                          <h6 className="count">{count}</h6>
+                          <h6 className="count">{item.counti}</h6>
 
                           <span
                             onClick={() => increFunc(item)}
@@ -162,10 +184,13 @@ const Orders = (props) => {
                           <h4 className="">Veg Soup</h4>
 
                           <div className="d-flex justify-content-start align-items-center">
-                            <span className="material-symbols-outlined rupee-icon">
+                            <span
+                              className="material-symbols-outlined "
+                              style={{ fontSize: "16px", marginBottom: "5px" }}
+                            >
                               currency_rupee
                             </span>
-                            <h6 className="title-txt">80</h6>
+                            <h6 className="title-txt text-dark">80</h6>
                           </div>
                         </div>
                       </div>
@@ -174,16 +199,16 @@ const Orders = (props) => {
                         <h4 className="">Add </h4>
                         <div className="counter-card">
                           <span
-                            onClick={() => decreFunc(item)}
+                            onClick={() => setSoup(soup - 1)}
                             class="material-symbols-outlined countbt"
                           >
                             remove
                           </span>
 
-                          <h6 className="count">{count}</h6>
+                          <h6 className="count">{soup} </h6>
 
                           <span
-                            onClick={() => increFunc(item)}
+                            onClick={() => setSoup(soup + 1)}
                             class="material-symbols-outlined countbt"
                           >
                             add
@@ -193,53 +218,144 @@ const Orders = (props) => {
                     </div>
                     <hr />
                     <div className="d-flex align-items-center">
-                      <span class="material-symbols-outlined ">timer</span>
-                      <h6 className="count">Delivery in 29 mintues</h6>
-                    </div>
-                    <hr />
-                    <div className="d-flex align-items-center">
-                      <span class="material-symbols-outlined">home</span>
-                      <h6 className="count">
-                        Delivery at <b>Home</b>{" "}
+                      <span class="material-symbols-outlined timer-icon ">
+                        timer
+                      </span>
+                      <h6 className=" timer-txt">
+                        Delivery in <b>29 </b> mintues
                       </h6>
                     </div>
                     <hr />
                     <div className="d-flex align-items-center">
-                      <span class="material-symbols-outlined">call</span>
-                      <h6 className="count">venugopal,9681841581</h6>
+                      <span class="material-symbols-outlined timer-icon ">
+                        home
+                      </span>
+                      <h6 className=" timer-txt">
+                        Delivery at <b>Home</b>
+                      </h6>
                     </div>
                     <hr />
                     <div className="d-flex align-items-center">
-                      <span class="material-symbols-outlined">description</span>
-                      <h6 className="count">
-                        Total Bill{" "}
-                        <span className="material-symbols-outlined rupee-icon">
-                          currency_rupee
-                        </span>{" "}
-                        788
+                      <span class="material-symbols-outlined timer-icon ">
+                        call
+                      </span>
+                      <h6 className="timer-txt">
+                        G Venugopal,<b>+91 9059746913</b>{" "}
                       </h6>
+                    </div>
+                    <hr />
+                    <div className="">
+                      <h4 className="">Price Details</h4>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <h5 className="timer-txt">
+                          {" "}
+                          price ( <b>{item.counti}</b> item ){" "}
+                        </h5>
+
+                        <div className="d-flex">
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              marginTop: "3px",
+                              fontWeight: "bold",
+                            }}
+                            className="material-symbols-outlined "
+                          >
+                            currency_rupee
+                          </span>
+                          <h5
+                            style={{ fontSize: "16px", fontWeight: "bold" }}
+                            className=""
+                          >
+                            {" "}
+                            {item.counti * item.cost}
+                          </h5>
+                        </div>
                       </div>
-                      <h6  className="">Including All Taxes, Charges & donation </h6>
-                    
+                      <hr />
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex">
+                          <span
+                            style={{
+                              fontSize: "17px",
+                              marginTop: "2px",
+                              marginRight: "3px",
+                            }}
+                            class="material-symbols-outlined "
+                          >
+                            description
+                          </span>
+                          <h5
+                            style={{ fontSize: "16px", fontWeight: "bold" }}
+                            className=""
+                          >
+                            {" "}
+                            Total Bill{" "}
+                          </h5>
+                        </div>
+                        <div className="d-flex">
+                          <span
+                            style={{
+                              fontSize: "16px",
+                              marginTop: "3px",
+                              fontWeight: "bold",
+                            }}
+                            className="material-symbols-outlined "
+                          >
+                            currency_rupee
+                          </span>
+                          <h5
+                            style={{
+                              fontSize: "16px",
+                              marginTop: "px",
+                              fontWeight: "bold",
+                            }}
+                            className=""
+                          >
+                            {" "}
+                            {item.counti * item.cost}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 className="timer-txt">
+                      Including All Taxes, Charges & donation
+                    </h6>
                   </div>
                 ))}
               </div>
               <div className="modal-footer">
-                <div className="d-flex flex-row justify-content-between align-items-center"> 
-                <div className="d-flex flex-column align-items-center">
+                {order.map((item1) => (
+                  <div style={{height:'45px',width:'180px'}} className="py-4 btn bg-danger d-flex flex-row justify-content-between align-items-center">
+                  <div className=" d-flex flex-column justify-content-center align-items-center">
+                    <div className="mt-3 d-flex flex-row justify-content-center align-items-center">
+                      <span
+                        style={{
+                          fontSize: "16px",
+                          marginBottom: "4px",
+                          marginRight: "0px",
+                        }}
+                        className="material-symbols-outlined text-white"
+                      >
+                        currency_rupee
+                      </span>
+                      <h6   style={{
+                          fontSize: "17px",
+                          marginTop: "1px",
+                          marginRight: "2px",
+                        }} 
+                        className="text-white"> {item1.cost * item1.counti}</h6>
+                      
+                      
                      
-                      <h6 className="count">
-                          
-                        <span className="material-symbols-outlined rupee-icon">
-                          currency_rupee
-                        </span> 799  <br/>
-                        Total Bill
-                      </h6>
-                      </div>
-                <button type="button" className="btn btn-primary">
-                  Place Order
-                </button>
-                </div>
+                    </div>
+                    <div className="text-center pb-2">
+                          <h6 style={{fontSize:"12px"}} className="text-light">Total</h6>
+                          </div>
+                          </div>
+                    <h6 className="text-white">Place Order</h6>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
