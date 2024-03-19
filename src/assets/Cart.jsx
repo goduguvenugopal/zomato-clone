@@ -10,6 +10,7 @@ const Orders = (props) => {
   const [soup, setSoup] = useState(0);
 
   const notify = () => toast("Successfully Removed Item from Cart");
+  const notify2 = () => toast("Your Order Has Been Placed Successfully ");
   // remove items in cart functions
   const removeFunc = (del) => {
     const updatedCart = cart.filter((rem) => rem.name !== del.name);
@@ -326,7 +327,7 @@ const Orders = (props) => {
               </div>
               <div className="modal-footer">
                 {order.map((item1) => (
-                  <div style={{height:'45px',width:'180px'}} className="py-4 btn bg-danger d-flex flex-row justify-content-between align-items-center">
+                  <div onClick={notify2} style={{height:'45px',width:'180px'}} className="py-4 btn bg-danger d-flex flex-row justify-content-between align-items-center">
                   <div className=" d-flex flex-column justify-content-center align-items-center">
                     <div className="mt-3 d-flex flex-row justify-content-center align-items-center">
                       <span
@@ -353,7 +354,7 @@ const Orders = (props) => {
                           <h6 style={{fontSize:"12px"}} className="text-light">Total</h6>
                           </div>
                           </div>
-                    <h6 className="text-white">Place Order</h6>
+                    <h6 style={{fontSize:"17px"}} className="text-white">Place Order</h6>
                   </div>
                 ))}
               </div>
