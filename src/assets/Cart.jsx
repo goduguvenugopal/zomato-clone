@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,8 @@ const Orders = (props) => {
   const [count, setCount] = useState(1);
   const [soup, setSoup] = useState(0);
 
+  
+
   const notify = () => toast("Successfully Removed Item from Cart");
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
   // remove items in cart functions
@@ -16,7 +18,6 @@ const Orders = (props) => {
     const updatedCart = cart.filter((rem) => rem.name !== del.name);
     setCart(updatedCart);
     notify();
-    console.log("After removal:", updatedCart);
   };
 
   // placing order function
@@ -27,7 +28,7 @@ const Orders = (props) => {
     setCount(0);
   };
 
-  // price increasing function
+  // price increment function
   const increFunc = (product) => {
     const updated = order.map((check) => {
       if (check.name === product.name) {
@@ -40,7 +41,7 @@ const Orders = (props) => {
     setCount(count + 1);
   };
 
-  // price decreasing function
+  // price decrement function
   const decreFunc = (product) => {
     const updated = order.map((check) => {
       if (check.name === product.name) {
