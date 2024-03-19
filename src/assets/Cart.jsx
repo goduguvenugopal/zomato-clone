@@ -186,7 +186,7 @@ const Orders = (props) => {
 
                           <div className="d-flex justify-content-start align-items-center">
                             <span
-                              className="material-symbols-outlined "
+                              className="material-symbols-outlined fw-bold"
                               style={{ fontSize: "16px", marginBottom: "5px" }}
                             >
                               currency_rupee
@@ -223,7 +223,7 @@ const Orders = (props) => {
                         timer
                       </span>
                       <h6 className=" timer-txt">
-                        Delivery in <b>29 </b> mintues
+                        Delivery in <b className="text-dark">29 </b> mintues
                       </h6>
                     </div>
                     <hr />
@@ -232,7 +232,7 @@ const Orders = (props) => {
                         home
                       </span>
                       <h6 className=" timer-txt">
-                        Delivery at <b>Home</b>
+                        Delivery at <b className="text-dark">Home</b>
                       </h6>
                     </div>
                     <hr />
@@ -241,7 +241,7 @@ const Orders = (props) => {
                         call
                       </span>
                       <h6 className="timer-txt">
-                        G Venugopal,<b>+91 9059746913</b>{" "}
+                        G Venugopal,<b className="text-dark">+91 9059746913</b>
                       </h6>
                     </div>
                     <hr />
@@ -249,8 +249,8 @@ const Orders = (props) => {
                       <h4 className="">Price Details</h4>
                       <div className="d-flex justify-content-between align-items-center">
                         <h5 className="timer-txt">
-                          {" "}
-                          price ( <b>{item.counti}</b> item ){" "}
+                          price ( <b className="text-dark">{item.counti}</b>{" "}
+                          item )
                         </h5>
 
                         <div className="d-flex">
@@ -268,7 +268,6 @@ const Orders = (props) => {
                             style={{ fontSize: "16px", fontWeight: "bold" }}
                             className=""
                           >
-                            {" "}
                             {item.counti * item.cost}
                           </h5>
                         </div>
@@ -290,8 +289,7 @@ const Orders = (props) => {
                             style={{ fontSize: "16px", fontWeight: "bold" }}
                             className=""
                           >
-                            {" "}
-                            Total Bill{" "}
+                            Total Bill
                           </h5>
                         </div>
                         <div className="d-flex">
@@ -313,7 +311,6 @@ const Orders = (props) => {
                             }}
                             className=""
                           >
-                            {" "}
                             {item.counti * item.cost}
                           </h5>
                         </div>
@@ -327,34 +324,44 @@ const Orders = (props) => {
               </div>
               <div className="modal-footer">
                 {order.map((item1) => (
-                  <div onClick={notify2} style={{height:'45px',width:'180px'}} className="py-4 btn bg-danger d-flex flex-row justify-content-between align-items-center">
-                  <div className=" d-flex flex-column justify-content-center align-items-center">
-                    <div className="mt-3 d-flex flex-row justify-content-center align-items-center">
-                      <span
-                        style={{
-                          fontSize: "16px",
-                          marginBottom: "4px",
-                          marginRight: "0px",
-                        }}
-                        className="material-symbols-outlined text-white"
-                      >
-                        currency_rupee
-                      </span>
-                      <h6   style={{
-                          fontSize: "17px",
-                          marginTop: "1px",
-                          marginRight: "2px",
-                        }} 
-                        className="text-white"> {item1.cost * item1.counti}</h6>
-                      
-                      
-                     
+                  <div
+                    onClick={notify2}
+                    style={{ height: "45px", width: "180px" }}
+                    className="py-4 btn bg-danger d-flex flex-row justify-content-between align-items-center"
+                  >
+                    <div className=" d-flex flex-column justify-content-center align-items-center">
+                      <div className="mt-3 d-flex flex-row justify-content-center align-items-center">
+                        <span
+                          style={{
+                            fontSize: "16px",
+                            marginBottom: "4px",
+                            marginRight: "0px",
+                          }}
+                          className="material-symbols-outlined text-white"
+                        >
+                          currency_rupee
+                        </span>
+                        <h6
+                          style={{
+                            fontSize: "17px",
+                            marginTop: "1px",
+                            marginRight: "2px",
+                          }}
+                          className="text-white"
+                        >
+                          {" "}
+                          {item1.cost * item1.counti}
+                        </h6>
+                      </div>
+                      <div className="text-center pb-2">
+                        <h6 style={{ fontSize: "12px" }} className="text-light">
+                          Total
+                        </h6>
+                      </div>
                     </div>
-                    <div className="text-center pb-2">
-                          <h6 style={{fontSize:"12px"}} className="text-light">Total</h6>
-                          </div>
-                          </div>
-                    <h6 style={{fontSize:"17px"}} className="text-white">Place Order</h6>
+                    <h6 style={{ fontSize: "17px" }} className="text-white">
+                      Place Order
+                    </h6>
                   </div>
                 ))}
               </div>

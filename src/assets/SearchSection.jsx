@@ -2,23 +2,19 @@ import React, { useState } from "react";
 import axios from "axios";
 import MainComp from "./MainComp";
 import MapComp from "./MapComp";
-import {states} from './data'
- 
+import { states } from "./data";
 
 const SearchSection = () => {
-   
-  const [state , setStaet] = useState(states)
+  const [state, setStaet] = useState(states);
   const [text, setText] = useState("");
+  const [location, setLocation] = useState("");
   const [data, setData] = useState([]);
-
-  
-   
-      
 
   const accessKey = "80961f9e5f7483595ad990f02d1e6425";
   const id = "de66da03";
   const url = `https://api.edamam.com/search?q=${text}&app_id=${id}&app_key=${accessKey}&from=0&to=100&calories=591-722&health=alcohol-free`;
 
+  // data fetch function
   const fetchFunction = async () => {
     try {
       const response = await axios.get(url);
@@ -31,6 +27,12 @@ const SearchSection = () => {
   const submitFunc = (e) => {
     e.preventDefault();
     fetchFunction();
+  };
+
+  // dropdown function
+  const dropDown = (drop) => {
+    const selected = state.find((pic) => pic === drop);
+    setLocation(selected);
   };
 
   return (
@@ -51,10 +53,22 @@ const SearchSection = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   />
-                  <ul className="dropdown-menu mt-1 p-2" style={{overflow:'scroll',height:'250px',width:'270px'}}>
-                  {state.map((item)=>(
-                    <li className="list-states">{item}</li>
-                  ))}
+                  <ul
+                    className="dropdown-menu mt-1 p-2"
+                    style={{
+                      overflow: "scroll",
+                      height: "250px",
+                      width: "270px",
+                    }}
+                  >
+                    {state.map((item) => (
+                      <li
+                        onClick={() => dropDown(item)}
+                        className="list-states"
+                      >
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -62,6 +76,7 @@ const SearchSection = () => {
                   type="text"
                   placeholder="Location"
                   className="input-box"
+                  value={location}
                 />
 
                 <span className="material-symbols-outlined">location_on</span>
@@ -75,13 +90,16 @@ const SearchSection = () => {
                   placeholder="Search for Food"
                   className="input-box"
                 />
-                <div style={{width:'60px'}} className=" d-flex justify-content-between align-items-center"> 
-                <span    class="material-symbols-outlined">mic</span>
-                <button type="submit" className=" sub-bt">
-                  <span className="material-symbols-outlined pt-1 search-icon">
-                    search
-                  </span>
-                </button>
+                <div
+                  style={{ width: "60px" }}
+                  className=" d-flex justify-content-between align-items-center"
+                >
+                  <span class="material-symbols-outlined">mic</span>
+                  <button type="submit" className=" sub-bt">
+                    <span className="material-symbols-outlined pt-1 search-icon">
+                      search
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
