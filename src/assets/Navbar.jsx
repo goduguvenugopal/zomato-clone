@@ -1,34 +1,27 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+ import Footer from './Footer'
 
-
-
-
-
-
-
-
-
-
-export const cartContext = createContext();
 const Navbar = () => {
   const [check, setCheck] = useState(true);
-  const [order, setOrder] = useState(false);
+
   const checkFunc = () => {
     setCheck(!check);
   };
 
-  const orderFunc = () => {
-    setOrder(!order);
-  };
   return (
     <div className="header  pt-2">
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container">
-          <a href="" > <img src="image/logo.png" className="rounded logo-img" alt="zomato" /></a>
+          <a href="">
+            <img
+              src="image/logo.png"
+              className="rounded logo-img"
+              alt="zomato"
+            />
+          </a>
           <a className="navbar-brand text-white fs-3 fw-bold" href="">
             Zomato
           </a>
@@ -45,7 +38,7 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse  " id="navbarNavAltMarkup">
             <div className="navbar-nav mt-2 m-auto">
-              <h5 onClick={orderFunc} className="">
+              <h5 className="">
                 <Link
                   to="/"
                   className="nav-link active text-white home-text "
@@ -54,12 +47,10 @@ const Navbar = () => {
                   Home
                 </Link>
               </h5>
-              <h5
-                onClick={orderFunc}
-                style={{ cursor: "pointer" }}
-                className="home-text nav-link text-white"
-              >
-                Cart
+              <h5 className="home-text text-white">
+                <Link className="home-text nav-link text-white" to="/cart1">
+                  Cart
+                </Link>
               </h5>
 
               <h5
@@ -269,10 +260,10 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <cartContext.Provider value={order}>
-        <SearchSection />
-      </cartContext.Provider>
-      <Footer />
+
+      <SearchSection />
+      <Footer/>
+       
     </div>
   );
 };

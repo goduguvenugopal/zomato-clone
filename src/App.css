@@ -366,9 +366,8 @@ margin-bottom: 7px;
 }
 
 .disabled {
-  pointer-events: none; /* Prevents clicks on the span */
-  opacity: 0.5; /* Dim the appearance of the disabled span */
-  /* Add any other styling as needed */
+  pointer-events: none;  
+  opacity: 0.5;  
 }
 
  
