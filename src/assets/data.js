@@ -84,7 +84,7 @@ export const foodList = [
     cost: "450",
   },
   {
-    name: "Fried Rice",
+    name: "Fried rice",
     title: "Andhra, Food",
     url: "/image/8.jpeg",
     cost: "150",

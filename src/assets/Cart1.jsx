@@ -98,17 +98,22 @@ const Cart1 = () => {
       <>
         <ToastContainer />
         {data && data.length > 0 ? (
-          <div className="container pt-5 mt-5">
-            <h3 className=" ">Cart Items</h3>
+          <div className="container pt-5 mt-5 d-flex flex-wrap justify-content-between align-items-center">
+            <div className=""> <h3 className=" ">Cart Items</h3>
             <h5 className="explore">
               Here Are The Your Favourite Food Items Added To Cart
-            </h5>
+              
+            </h5></div>
+            <div className="pt-2">
+             <h5 className="">Total Cart items : {data.length}</h5> 
+            </div>
+            
           </div>
         ) : (
           ""
         )}
 
-        <div className="pb-5 pt-4 non-map-card">
+        <div className="pb-5 pt-3 non-map-card">
           {data && data.length > 0 ? (
             data.map((cartItem, index) => (
               <div key={index} className="card1 " style={{ height: "390px" }}>
@@ -124,7 +129,7 @@ const Cart1 = () => {
                       <h6 className="title-txt">{cartItem.cost} for one</h6>
                     </div>
                   </div>
-
+                 
                   <div className="order-bt-card">
                     <button
                       onClick={() => removeFunc(cartItem)}
