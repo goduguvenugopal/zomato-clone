@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +8,6 @@ const Orders = (props) => {
   const [order, setOrder] = useState([]);
   const [count, setCount] = useState(1);
   const [soup, setSoup] = useState(0);
-
-  
 
   const notify = () => toast("Successfully Removed Item from Cart");
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
@@ -162,8 +160,11 @@ const Orders = (props) => {
                         <h4 className="">Add </h4>
                         <div className="counter-card">
                           <span
+                            disabled={item.counti === 1}
                             onClick={() => decreFunc(item)}
-                            class="material-symbols-outlined countbt"
+                            className={`material-symbols-outlined countbt ${
+                              item.counti === 1 ? "disabled" : ""
+                            }`}
                           >
                             remove
                           </span>
@@ -202,7 +203,9 @@ const Orders = (props) => {
                         <div className="counter-card">
                           <span
                             onClick={() => setSoup(soup - 1)}
-                            class="material-symbols-outlined countbt"
+                            className={`material-symbols-outlined countbt ${
+                              soup === 0 ? "disabled" : ""
+                            }`}
                           >
                             remove
                           </span>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MainComp from "./MainComp";
 import MapComp from "./MapComp";
@@ -37,6 +37,7 @@ const SearchSection = () => {
 
   return (
     <>
+      
       <div className="pb-5 text-center pt-5">
         <h1 className="text-white zomato-heading">Zomato</h1>
         <h3 className="text-white">

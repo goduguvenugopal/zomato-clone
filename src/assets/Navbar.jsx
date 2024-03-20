@@ -4,6 +4,15 @@ import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
+
+
+
+
+
+
+
+
+
 export const cartContext = createContext();
 const Navbar = () => {
   const [check, setCheck] = useState(true);
