@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { cart1Context } from "./WebPages";
-import { Link } from "react-router-dom";
 import "../App.css";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Footer";
 
 const Cart1 = () => {
   const [data, setData] = useContext(cart1Context);
@@ -53,6 +54,7 @@ const Cart1 = () => {
 
     setCount(count - 1);
   };
+  // total cost of all items function
 
   return (
     <>
@@ -90,6 +92,11 @@ const Cart1 = () => {
                   Home
                 </Link>
               </h5>
+              <h5 className="home-text text-white">
+                <Link className="home-text nav-link text-dark" to="/profile">
+                  Profile
+                </Link>
+              </h5>
             </div>
           </div>
         </div>
@@ -99,15 +106,15 @@ const Cart1 = () => {
         <ToastContainer />
         {data && data.length > 0 ? (
           <div className="container pt-5 mt-5 d-flex flex-wrap justify-content-between align-items-center">
-            <div className=""> <h3 className=" ">Cart Items</h3>
-            <h5 className="explore">
-              Here Are The Your Favourite Food Items Added To Cart
-              
-            </h5></div>
-            <div className="pt-2">
-             <h5 className="">Total Cart items : {data.length}</h5> 
+            <div className="">
+              <h3 className=" ">My Cart</h3>
+              <h5 className="explore">
+                Here Are The Your Favourite Food Items Added To Cart
+              </h5>
             </div>
-            
+            <div className="pt-2">
+              <h5 className="">Total Cart items : {data.length}</h5>
+            </div>
           </div>
         ) : (
           ""
@@ -129,7 +136,7 @@ const Cart1 = () => {
                       <h6 className="title-txt">{cartItem.cost} for one</h6>
                     </div>
                   </div>
-                 
+
                   <div className="order-bt-card">
                     <button
                       onClick={() => removeFunc(cartItem)}
@@ -435,6 +442,7 @@ const Cart1 = () => {
           </div>
         </>
       </>
+      <Footer />
     </>
   );
 };

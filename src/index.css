@@ -5,3 +5,31 @@
    box-sizing: border-box;
    padding: 0;
   }
+
+  /* profile styling  */
+
+  .profile-card{
+ background-color: rgb(30, 198, 207);
+  height: 50vh;
+ 
+ 
+  }
+
+
+  .profi1-img{
+    width: 170px; 
+    border-radius: 50%;
+    height: 170px;
+    padding: 10px;
+    background-color: white;
+    
+  }
+
+    .profi2-img{
+    width: 100px; 
+    border-radius: 50%;
+    height: 100px;
+    padding: 10px;
+    background-color: rgb(188, 78, 78);
+    
+  }

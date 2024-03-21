@@ -22,9 +22,10 @@ const Navbar = () => {
               alt="zomato"
             />
           </a>
-          <a className="navbar-brand text-white fs-3 fw-bold" href="">
+          <a className=" navbar-brand text-white fs-3 fw-bold" href="">
             Zomato
           </a>
+          
           <button
             className="navbar-toggler bg-white"
             type="button"
@@ -52,6 +53,12 @@ const Navbar = () => {
                   Cart
                 </Link>
               </h5>
+              <h5 className="home-text text-white">
+                <Link className="home-text nav-link text-white" to="/profile">
+                  Profile
+                </Link>
+              </h5>
+
 
               <h5
                 className="nav-link text-white home-text"
