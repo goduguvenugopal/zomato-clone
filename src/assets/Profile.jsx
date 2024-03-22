@@ -116,8 +116,22 @@ const Profile = () => {
             </span>
             Edit
           </button>
+        </div> 
+        <div className="online-card  container">
+          <div className="online-list"> 
+          <h5   className="timer-txt">ONLINE ORDERING</h5>
+          <h6 style={{cursor:'pointer'}} className="">Order History</h6>
+          <h6 style={{cursor:'pointer'}} className="">My Addresses</h6>
+          <h6  style={{cursor:'pointer'}}className="">Favorite Orders</h6>
+          </div>
+          <div className="text-start">
+            <h4 className="">My Addresses</h4>
+            <hr/>
+            <h5 style={{textTransform:'capitalize'}}  className="mt-4">Name : <b className="timer-txt"> {text.name}</b></h5>
+            <h5 className="">Phone :<b className="timer-txt"> {text.phone}</b> </h5>
+            <h5 style={{textTransform:'capitalize'}} className="">Address : <b className="timer-txt"> {text.address}</b> </h5>
+          </div>
         </div>
-        
       </div>
 
       {/* Edit modal  */}
@@ -172,6 +186,7 @@ const Profile = () => {
               <form className="" onSubmit={formFunc}>
                 <div className="form-floating mb-3">
                   <input
+                    required
                     style={{ textTransform: "capitalize" }}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -184,6 +199,7 @@ const Profile = () => {
                 </div>
                 <div className="form-floating mb-3">
                   <input
+                    required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     type="number"
@@ -195,6 +211,7 @@ const Profile = () => {
                 </div>
                 <div className="form-floating mb-3">
                   <input
+                    required
                     style={{ textTransform: "capitalize" }}
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
@@ -227,7 +244,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };

@@ -113,3 +113,17 @@
   padding: 10px;
   border-radius: 10px;
 }
+.online-list{
+  height: 30vh;
+  width: 30vw;
+  display: flex;
+  row-gap: 5px;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.online-card{
+  display: flex;
+column-gap: 30px;
+  padding-top: 20px;
+  height: 40vh;
+}
