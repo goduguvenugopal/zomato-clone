@@ -3,9 +3,11 @@ import App from "../App";
 
 export const cart1Context = createContext();
 export const profileContext = createContext();
+export const photoContext = createContext();
 
 const WebPages = () => {
   const [data, setData] = useState([]);
+  const [photo, setPhoto] = useState(null);
   const [text, setText] = useState({
     name: "",
     phone: "",
@@ -15,7 +17,9 @@ const WebPages = () => {
     <div>
       <cart1Context.Provider value={[data, setData]}>
         <profileContext.Provider value={[text, setText]}>
-          <App />
+          <photoContext.Provider value={[photo, setPhoto]}>
+            <App />
+          </photoContext.Provider>
         </profileContext.Provider>
       </cart1Context.Provider>
     </div>

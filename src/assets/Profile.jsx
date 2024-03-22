@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "../App.css";
 import "../index.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import { photoContext } from "./WebPages";
 
 const Profile = () => {
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useContext(photoContext);
     const uploadImage = (e) =>{
   const file = e.target.files[0]
   if(file){
@@ -64,9 +65,9 @@ const Profile = () => {
       </nav>
 
       {/* profile section  */}
-      <div className="mt-5 pt-2 px-3">
-        <div className="mt-4 px-4 d-flex align-items-center justify-content-between  container profile-card">
-          <div className="d-flex align-items-center">
+      <div className="mt-5 pt-2 px-2">
+        <div className="mt-4  d-flex align-items-center justify-content-between  container profile-card">
+          <div style={{width:'210px'}} className=" d-flex justify-content-between align-items-center">
             <img src={image} className="profi1-img" />
             <h5 className="profi1-name">Venugopal</h5>
           </div>
