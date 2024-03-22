@@ -82,7 +82,8 @@ const Profile = () => {
             data-bs-target="#staticBackdrop"
             className="btn fw-bold btn-danger d-flex align-items-center"
           >
-            <span class="material-symbols-outlined edit-icon">edit_square</span>Edit
+            <span class="material-symbols-outlined edit-icon">edit_square</span>
+            Edit
           </button>
         </div>
       </div>
@@ -104,8 +105,10 @@ const Profile = () => {
                 className="modal-title d-flex align-items-center  "
                 id="staticBackdropLabel"
               >
-                <span class="material-symbols-outlined edit-icon1">edit_square</span> Edit
-                Profile
+                <span class="material-symbols-outlined edit-icon1">
+                  edit_square
+                </span>{" "}
+                Edit Profile
               </h5>
               <button
                 type="button"
@@ -128,8 +131,38 @@ const Profile = () => {
                   accept="image/*"
                 />
               </div>
-            </div>
-            <div className="modal-footer">
+              <hr />
+              <form className=""> 
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label htmlFor="floatingInput">Enter Name</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="number"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label htmlFor="floatingInput">Enter Phone Number</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label htmlFor="floatingInput">Enter Address</label>
+              </div>
+              <h6 className="text-dark"><b className="text-dark">Note :</b>This address will be used for delivary </h6>
+             
+               <div className="modal-footer">
               <button
                 type="button"
                 className="btn btn-secondary"
@@ -137,10 +170,14 @@ const Profile = () => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-                Understood
+              <button type="submit" className="btn btn-primary">
+               Save
               </button>
             </div>
+              </form>
+            </div>
+           
+             
           </div>
         </div>
       </div>

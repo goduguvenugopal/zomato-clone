@@ -7,7 +7,7 @@ export const photoContext = createContext();
 
 const WebPages = () => {
   const [data, setData] = useState([]);
-  const [photo, setPhoto] = useState(null);
+  const [photo, setPhoto] = useState( '/image/pro-image.png');
   const [text, setText] = useState({
     name: "",
     phone: "",
