@@ -3,11 +3,31 @@ import "../App.css";
 import "../index.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { photoContext } from "./WebPages";
+import { photoContext, profileContext } from "./WebPages";
 
-// preview image function
+//  form function 
 const Profile = () => {
   const [image, setImage] = useContext(photoContext);
+  const [text ,setText] = useContext(profileContext)
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address:""
+  });
+
+  console.log(text)
+  const formFunc = (e) =>{
+    e.preventDefault()
+    setText(formData)
+    setFormData({
+      name: "",
+      phone: "",
+      address:""
+    })
+    
+  }
+
+// preview image function
   const uploadImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -82,10 +102,13 @@ const Profile = () => {
             data-bs-target="#staticBackdrop"
             className="btn fw-bold btn-danger d-flex align-items-center"
           >
-            <span class="material-symbols-outlined edit-icon">edit_square</span>
+            <span className="material-symbols-outlined edit-icon">edit_square</span>
             Edit
           </button>
         </div>
+        {text.name}
+        {text.phone}
+        {text.address}
       </div>
 
       {/* Edit modal  */}
@@ -105,9 +128,9 @@ const Profile = () => {
                 className="modal-title d-flex align-items-center  "
                 id="staticBackdropLabel"
               >
-                <span class="material-symbols-outlined edit-icon1">
+                <span className="material-symbols-outlined edit-icon1">
                   edit_square
-                </span>{" "}
+                </span> 
                 Edit Profile
               </h5>
               <button
@@ -118,10 +141,10 @@ const Profile = () => {
               />
             </div>
             <div className="modal-body">
-              <div className="text-center">
+              <div className="text-center modal-card">
                 <img src={image} className="profi2-img" />
                 <label htmlFor="file" className="camera">
-                  <span class="material-symbols-outlined">photo_camera</span>
+                  <span style={{cursor:'pointer'}} className="text-white material-symbols-outlined">photo_camera</span>
                 </label>
                 <input
                   onChange={uploadImage}
@@ -132,9 +155,11 @@ const Profile = () => {
                 />
               </div>
               <hr />
-              <form className=""> 
+              <form className="" onSubmit={formFunc}> 
               <div className="form-floating mb-3">
                 <input
+                 value={formData.name}
+                 onChange={(e)=>setFormData(e.target.value)}
                   type="text"
                   className="form-control"
                   id="floatingInput"
@@ -144,6 +169,8 @@ const Profile = () => {
               </div>
               <div className="form-floating mb-3">
                 <input
+                  value={formData.phone}
+                  onChange={(e)=>setFormData(e.target.value)}
                   type="number"
                   className="form-control"
                   id="floatingInput"
@@ -153,6 +180,8 @@ const Profile = () => {
               </div>
               <div className="form-floating mb-3">
                 <input
+                   value={formData.address}
+                onChange={(e)=>setFormData(e.target.value)}
                   type="text"
                   className="form-control"
                   id="floatingInput"
