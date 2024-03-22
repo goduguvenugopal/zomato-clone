@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { cart1Context, photoContext } from "./WebPages";
+import { cart1Context, photoContext, profileContext } from "./WebPages";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +11,8 @@ const Cart1 = () => {
   const [order, setOrder] = useState([]);
   const [count, setCount] = useState(1);
   const [soup, setSoup] = useState(0);
-  const [image ,setImage] = useContext(photoContext)
+  const [image, setImage] = useContext(photoContext);
+  const [text, setText] = useContext(profileContext);
 
   const notify = () => toast("Successfully Removed Item from Cart");
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
@@ -93,10 +94,10 @@ const Cart1 = () => {
                   Home
                 </Link>
               </h5>
-              <h5 className="home-text text-dark">
-                <Link className="home-text nav-link text-dark" to="/profile">
-                <img src={image} className="logo-img1" alt="profile" />
-                Venugopal
+              <h5 style={{textTransform:'capitalize'}} className="home-text text-dark">
+                <Link style={{textTransform:'capitalize'}} className="home-text nav-link text-dark" to="/profile">
+                  <img src={image} className="logo-img1" alt="profile" />
+                  {text.name}
                 </Link>
               </h5>
             </div>
@@ -297,22 +298,25 @@ const Cart1 = () => {
                         </h6>
                       </div>
                       <hr />
-                      <div className="d-flex align-items-center">
-                        <span class="material-symbols-outlined timer-icon ">
-                          home
-                        </span>
-                        <h6 className=" timer-txt">
-                          Delivery at <b className="text-dark">Home</b>
-                        </h6>
+                      <div className="d-flex flex-column align-items-start">
+                        <div className="d-flex align-items-center">
+                          <span class="material-symbols-outlined timer-icon ">
+                            home
+                          </span>
+                          <h6 className=" timer-txt">
+                            Delivery at <b className="text-dark">Home</b>
+                          </h6>
+                        </div>
+                        <h6   style={{ textTransform:'capitalize' }} className="timer-txt">{text.address} </h6>
                       </div>
                       <hr />
                       <div className="d-flex align-items-center">
                         <span class="material-symbols-outlined timer-icon ">
                           call
                         </span>
-                        <h6 className="timer-txt">
-                          G Venugopal,
-                          <b className="text-dark">+91 9059746913</b>
+                        <h6 className="timer-txt ">
+                          <b   style={{ textTransform:'capitalize' }} className="timer-txt">{text.name}</b>  ,
+                          <b className="text-dark">+91 {text.phone}</b>
                         </h6>
                       </div>
                       <hr />

@@ -3,12 +3,13 @@ import "../App.css";
 import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { photoContext } from "./WebPages";
+import { photoContext, profileContext } from "./WebPages";
 // import '../index.css'
 
 const Navbar = () => {
   const [check, setCheck] = useState(true);
   const [image, setImage] = useContext(photoContext);
+  const [text,setText] = useContext(profileContext)
 
   const checkFunc = () => {
     setCheck(!check);
@@ -64,10 +65,10 @@ const Navbar = () => {
               >
                 Log in
               </h5>
-              <h5 className="home-text text-white">
-                <Link className="home-text nav-link text-white" to="/profile">
+              <h5 style={{textTransform:'capitalize'}} className="home-text text-white">
+                <Link style={{textTransform:'capitalize'}} className="home-text nav-link text-white" to="/profile">
                 <img src={image} className="logo-img1" alt="zomato" />
-                Venugopal
+                {text.name}
                 </Link>
               </h5>
 

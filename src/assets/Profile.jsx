@@ -4,30 +4,30 @@ import "../index.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { photoContext, profileContext } from "./WebPages";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-//  form function 
+const notify = () => toast("Your Profile Has Been Updated SuccessFully ");
+
+//  form function
 const Profile = () => {
   const [image, setImage] = useContext(photoContext);
-  const [text ,setText] = useContext(profileContext)
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    address:""
-  });
+  const [text, setText] = useContext(profileContext);
 
-  console.log(text)
-  const formFunc = (e) =>{
-    e.preventDefault()
-    setText(formData)
-    setFormData({
-      name: "",
-      phone: "",
-      address:""
-    })
-    
-  }
+  const [name, setName] = useState(" ");
+  const [phone, setPhone] = useState(" ");
+  const [address, setAddress] = useState("");
 
-// preview image function
+  const formFunc = (e) => {
+    e.preventDefault();
+    setText({ name, phone, address });
+    setName(" ");
+    setPhone(" ");
+    setAddress(" ");
+    notify();
+  };
+
+  // preview image function
   const uploadImage = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -41,6 +41,7 @@ const Profile = () => {
 
   return (
     <>
+      <ToastContainer />
       <nav className="navbar  shadow navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           <a href="">
@@ -80,9 +81,12 @@ const Profile = () => {
                   Cart
                 </Link>
               </h5>
-              <h5 className="text-dark nav-link">
+              <h5
+                style={{ textTransform: "capitalize" }}
+                className="text-dark nav-link"
+              >
                 <img src={image} className="logo-img1" alt="zomato" />
-                Venugopal
+                {text.name}
               </h5>
             </div>
           </div>
@@ -94,7 +98,12 @@ const Profile = () => {
         <div className="mt-4  d-flex align-items-center justify-content-between  container profile-card">
           <div className="image-card d-flex flex-wrap justify-content-between align-items-center">
             <img src={image} className="profi1-img" />
-            <h5 className="profi1-name text-white">Venugopal</h5>
+            <h5
+              style={{ textTransform: "capitalize" }}
+              className="profi1-name text-white"
+            >
+              {text.name}
+            </h5>
           </div>
 
           <button
@@ -102,13 +111,13 @@ const Profile = () => {
             data-bs-target="#staticBackdrop"
             className="btn fw-bold btn-danger d-flex align-items-center"
           >
-            <span className="material-symbols-outlined edit-icon">edit_square</span>
+            <span className="material-symbols-outlined edit-icon">
+              edit_square
+            </span>
             Edit
           </button>
         </div>
-        {text.name}
-        {text.phone}
-        {text.address}
+        
       </div>
 
       {/* Edit modal  */}
@@ -130,7 +139,7 @@ const Profile = () => {
               >
                 <span className="material-symbols-outlined edit-icon1">
                   edit_square
-                </span> 
+                </span>
                 Edit Profile
               </h5>
               <button
@@ -144,7 +153,12 @@ const Profile = () => {
               <div className="text-center modal-card">
                 <img src={image} className="profi2-img" />
                 <label htmlFor="file" className="camera">
-                  <span style={{cursor:'pointer'}} className="text-white material-symbols-outlined">photo_camera</span>
+                  <span
+                    style={{ cursor: "pointer" }}
+                    className="text-white material-symbols-outlined"
+                  >
+                    photo_camera
+                  </span>
                 </label>
                 <input
                   onChange={uploadImage}
@@ -155,58 +169,61 @@ const Profile = () => {
                 />
               </div>
               <hr />
-              <form className="" onSubmit={formFunc}> 
-              <div className="form-floating mb-3">
-                <input
-                 value={formData.name}
-                 onChange={(e)=>setFormData(e.target.value)}
-                  type="text"
-                  className="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="floatingInput">Enter Name</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  value={formData.phone}
-                  onChange={(e)=>setFormData(e.target.value)}
-                  type="number"
-                  className="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="floatingInput">Enter Phone Number</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                   value={formData.address}
-                onChange={(e)=>setFormData(e.target.value)}
-                  type="text"
-                  className="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
-                />
-                <label htmlFor="floatingInput">Enter Address</label>
-              </div>
-              <h6 className="text-dark"><b className="text-dark">Note :</b>This address will be used for delivary </h6>
-             
-               <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="submit" className="btn btn-primary">
-               Save
-              </button>
-            </div>
+              <form className="" onSubmit={formFunc}>
+                <div className="form-floating mb-3">
+                  <input
+                    style={{ textTransform: "capitalize" }}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    className="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                  />
+                  <label htmlFor="floatingInput">Enter Name</label>
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    type="number"
+                    className="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                  />
+                  <label htmlFor="floatingInput">Enter Phone Number</label>
+                </div>
+                <div className="form-floating mb-3">
+                  <input
+                    style={{ textTransform: "capitalize" }}
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    type="text"
+                    className="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                  />
+                  <label htmlFor="floatingInput">Enter Address</label>
+                </div>
+                <h6 className="text-dar timer-txt">
+                  <b className="text-dark">Note :</b> This address will be used
+                  for delivary{" "}
+                </h6>
+
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Update
+                  </button>
+                </div>
               </form>
             </div>
-           
-             
           </div>
         </div>
       </div>
