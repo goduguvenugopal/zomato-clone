@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { cart1Context } from "./WebPages";
+import { cart1Context, photoContext } from "./WebPages";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +11,7 @@ const Cart1 = () => {
   const [order, setOrder] = useState([]);
   const [count, setCount] = useState(1);
   const [soup, setSoup] = useState(0);
+  const [image ,setImage] = useContext(photoContext)
 
   const notify = () => toast("Successfully Removed Item from Cart");
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
@@ -92,9 +93,10 @@ const Cart1 = () => {
                   Home
                 </Link>
               </h5>
-              <h5 className="home-text text-white">
+              <h5 className="home-text text-dark">
                 <Link className="home-text nav-link text-dark" to="/profile">
-                  Profile
+                <img src={image} className="logo-img1" alt="profile" />
+                Venugopal
                 </Link>
               </h5>
             </div>

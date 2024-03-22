@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../App.css";
 import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
- import Footer from './Footer'
+import Footer from "./Footer";
+import { photoContext } from "./WebPages";
+// import '../index.css'
 
 const Navbar = () => {
   const [check, setCheck] = useState(true);
+  const [image, setImage] = useContext(photoContext);
 
   const checkFunc = () => {
     setCheck(!check);
@@ -25,7 +28,7 @@ const Navbar = () => {
           <a className=" navbar-brand text-white fs-3 fw-bold" href="">
             Zomato
           </a>
-          
+
           <button
             className="navbar-toggler bg-white"
             type="button"
@@ -53,13 +56,6 @@ const Navbar = () => {
                   Cart
                 </Link>
               </h5>
-              <h5 className="home-text text-white">
-                <Link className="home-text nav-link text-white" to="/profile">
-                  Profile
-                </Link>
-              </h5>
-
-
               <h5
                 className="nav-link text-white home-text"
                 data-bs-toggle="modal"
@@ -68,6 +64,15 @@ const Navbar = () => {
               >
                 Log in
               </h5>
+              <h5 className="home-text text-white">
+                <Link className="home-text nav-link text-white" to="/profile">
+                <img src={image} className="logo-img1" alt="zomato" />
+                Venugopal
+                </Link>
+              </h5>
+
+              
+              
 
               {/* login and signup modal  */}
 
@@ -269,8 +274,7 @@ const Navbar = () => {
       </nav>
 
       <SearchSection />
-      <Footer/>
-       
+      <Footer />
     </div>
   );
 };

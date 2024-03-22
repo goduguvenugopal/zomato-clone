@@ -1,26 +1,27 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import "../App.css";
 import "../index.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import { photoContext } from "./WebPages";
 
+// preview image function
 const Profile = () => {
-    const [image, setImage] = useContext(photoContext);
-    const uploadImage = (e) =>{
-  const file = e.target.files[0]
-  if(file){
-    const reader = new FileReader()
-    reader.onloadend = ()=>{
-        setImage(reader.result)
+  const [image, setImage] = useContext(photoContext);
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
-    reader.readAsDataURL(file)
-  }
-    }
+  };
 
   return (
     <>
-      <nav className="navbar shadow navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar  shadow navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           <a href="">
             <img
@@ -59,25 +60,29 @@ const Profile = () => {
                   Cart
                 </Link>
               </h5>
+              <h5 className="text-dark nav-link">
+                <img src={image} className="logo-img1" alt="zomato" />
+                Venugopal
+              </h5>
             </div>
           </div>
         </div>
       </nav>
 
       {/* profile section  */}
-      <div className="mt-5 pt-2 px-2">
+      <div className="profile-section">
         <div className="mt-4  d-flex align-items-center justify-content-between  container profile-card">
-          <div style={{width:'210px'}} className=" d-flex justify-content-between align-items-center">
+          <div className="image-card d-flex flex-wrap justify-content-between align-items-center">
             <img src={image} className="profi1-img" />
-            <h5 className="profi1-name">Venugopal</h5>
+            <h5 className="profi1-name text-white">Venugopal</h5>
           </div>
 
           <button
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            className="btn btn-danger d-flex align-items-center"
+            className="btn fw-bold btn-danger d-flex align-items-center"
           >
-            <span class="material-symbols-outlined">edit_square</span>Edit
+            <span class="material-symbols-outlined edit-icon">edit_square</span>Edit
           </button>
         </div>
       </div>
@@ -99,7 +104,7 @@ const Profile = () => {
                 className="modal-title d-flex align-items-center  "
                 id="staticBackdropLabel"
               >
-                <span class="material-symbols-outlined ">edit_square</span> Edit
+                <span class="material-symbols-outlined edit-icon1">edit_square</span> Edit
                 Profile
               </h5>
               <button
@@ -116,7 +121,7 @@ const Profile = () => {
                   <span class="material-symbols-outlined">photo_camera</span>
                 </label>
                 <input
-                onChange={uploadImage}
+                  onChange={uploadImage}
                   className="d-none"
                   type="file"
                   id="file"

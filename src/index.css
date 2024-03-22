@@ -1,61 +1,104 @@
-  *{
-   margin: 0;
-   outline: none;
-   user-select: none;
-   box-sizing: border-box;
-   padding: 0;
-  }
+* {
+  margin: 0;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 0;
+}
 
-  /* profile styling  */
+/* profile styling  */
 
-  .profile-card{
- background-color: rgb(30, 198, 207);
+.profile-card {
+  background-color: rgb(30, 198, 207);
   height: 50vh;
- 
- 
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-card {
+    background-image: url('/image/profile-bg.jpeg');
+     background-size: cover;
+    height: 50vh;
+  }
+  .navbar {
+    padding-bottom: 0px;
   }
 
-  @media only screen and (min-width:768px){
-    .profile-card{
-      background-color: rgb(30, 198, 207);
-       height: 50vh;
-   
-      
-      
-       }
-       .profi1-img{
-        width: 150px; 
-        border-radius: 50%;
-        height: 150px;
-        padding: 10px;
-        background-color: white;
-        
-      }
+  .image-card {
+    width: 280px;
   }
 
-  @media only screen and (max-width:768px){
-    .profile-card{
-      background-color: rgb(30, 198, 207);
-       height: 30vh;
-      padding-left: 20px;
-      padding-right: 20px;
-      
-       }
-       .profi1-img{
-        width: 100px; 
-        border-radius: 50%;
-        height: 100px;
-        padding: 10px;
-        background-color: white;
-        
-      }
+  .profi1-img {
+    width: 170px;
+    border-radius: 50%;
+    height: 170px;
+    padding: 10px;
+    background-color: white;
   }
- 
-    .profi2-img{
-    width: 100px; 
+
+  .profile-section {
+    padding: 10px;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .profile-card {
+    background-image: url('/image/profile-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    
+    height: 30vh;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .navbar {
+    padding-bottom: 10px;
+  }
+  .image-card {
+    width: 210px;
+  }
+  .profi1-img {
+    width: 100px;
     border-radius: 50%;
     height: 100px;
-    padding: 10px;
-    background-color: rgb(188, 78, 78);
-    
+    padding: 6px;
+    background-color: white;
   }
+  .profile-section {
+    padding: 10px;
+    margin-top: 40px;
+  }
+}
+
+.profi2-img {
+  width: 100px;
+  border-radius: 50%;
+  height: 100px;
+  padding: 10px;
+  background-color: rgb(188, 78, 78);
+}
+
+.logo-img1 {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 5px;
+}
+
+.edit-icon {
+  margin-top: 3px;
+  font-size: 15px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.edit-icon1 {
+  margin-top: 3px;
+  font-size: 19px;
+  font-weight: bold;
+  margin-right: 5px;
+}
