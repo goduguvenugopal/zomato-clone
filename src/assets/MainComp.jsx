@@ -8,7 +8,7 @@ import { cart1Context } from "./WebPages";
 
 const MainComp = () => {
   const [data, setData] = useContext(cart1Context);
-
+const [cart, setCart] = useState([]);
   const [food, setFood] = useState(foodList);
   const [scrollList, setScrollList] = useState(scroll);
  
@@ -20,6 +20,7 @@ const MainComp = () => {
     const filtered = foodList.find((item) => item.name === selectedfFood.name);
    
     setData([...cart, { ...filtered, counti: 1 }]);
+setCart([...cart, { ...filtered, counti: 1 }]);
     // addcart button function
     setAddedToCart({ ...addedToCart, [selectedfFood.name]: true });
     notify();
