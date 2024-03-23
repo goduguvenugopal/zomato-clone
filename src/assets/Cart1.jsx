@@ -31,6 +31,15 @@ const Cart1 = () => {
     setCount(0);
   };
 
+  // Total amount cart items function
+
+  const totalAmount = () => {
+    let total = 0;
+    data.map((caluculate) => {
+      total += caluculate.id * caluculate.cost;
+    });
+    return total.toFixed(2);
+  };
   // price increment function
   const increFunc = (product) => {
     const updated = order.map((check) => {
@@ -56,7 +65,7 @@ const Cart1 = () => {
 
     setCount(count - 1);
   };
-  // total cost of all items function
+ 
 
   return (
     <>
@@ -94,8 +103,15 @@ const Cart1 = () => {
                   Home
                 </Link>
               </h5>
-              <h5 style={{textTransform:'capitalize'}} className="home-text text-dark">
-                <Link style={{textTransform:'capitalize'}} className="home-text nav-link text-dark" to="/profile">
+              <h5
+                style={{ textTransform: "capitalize" }}
+                className="home-text text-dark"
+              >
+                <Link
+                  style={{ textTransform: "capitalize" }}
+                  className="home-text nav-link text-dark"
+                  to="/profile"
+                >
                   <img src={image} className="logo-img1" alt="profile" />
                   {text.name}
                 </Link>
@@ -116,7 +132,9 @@ const Cart1 = () => {
               </h5>
             </div>
             <div className="pt-2">
-              <h5 className="">Total Cart items : {data.length}</h5>
+              <h5 className="d-flex align-items-center">Total Items Amount :  <span style={{marginTop:'4px',fontSize:'17px'}} className="material-symbols-outlined rupee-ico">
+                          currency_rupee
+                        </span>{totalAmount()} </h5>
             </div>
           </div>
         ) : (
@@ -126,41 +144,44 @@ const Cart1 = () => {
         <div className="pb-5 pt-3 non-map-card">
           {data && data.length > 0 ? (
             data.map((cartItem, index) => (
-              <div key={index} className="card1 " style={{ height: "390px" }}>
-                <img src={cartItem.url} className="card-img" alt="..." />
-                <div className="card-b">
-                  <h5 className="card-title">{cartItem.name}</h5>
-                  <div className="pb-2 d-flex justify-content-between align-items-center">
-                    <h6 className="card-text title-txt">{cartItem.title}</h6>
-                    <div className=" d-flex justify-content-between align-items-center">
-                      <span className="material-symbols-outlined rupee-icon">
-                        currency_rupee
-                      </span>
-                      <h6 className="title-txt">{cartItem.cost} for one</h6>
+              
+                <div key={index} className="card1 " style={{ height: "390px" }}>
+                  <img src={cartItem.url} className="card-img" alt="..." />
+                  <div className="card-b">
+                    <h5 className="card-title">{cartItem.name}</h5>
+                    <div className="pb-2 d-flex justify-content-between align-items-center">
+                      <h6 className="card-text title-txt">{cartItem.title}</h6>
+                      <div className=" d-flex justify-content-between align-items-center">
+                        <span className="material-symbols-outlined rupee-icon">
+                          currency_rupee
+                        </span>
+                        <h6 className="title-txt">{cartItem.cost} for one</h6>
+                      </div>
+                    </div>
+
+                    <div className="order-bt-card">
+                      <button
+                        onClick={() => removeFunc(cartItem)}
+                        className=" order-bt btn btn-danger "
+                      >
+                        <span className="material-symbols-outlined delete-icon">
+                          delete
+                        </span>
+                        Remove
+                      </button>
+                      <button
+                        onClick={() => placeOrder(cartItem)}
+                        className="order-bt btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      >
+                        Place Order
+                      </button>
                     </div>
                   </div>
-
-                  <div className="order-bt-card">
-                    <button
-                      onClick={() => removeFunc(cartItem)}
-                      className=" order-bt btn btn-danger "
-                    >
-                      <span className="material-symbols-outlined delete-icon">
-                        delete
-                      </span>
-                      Remove
-                    </button>
-                    <button
-                      onClick={() => placeOrder(cartItem)}
-                      className="order-bt btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#staticBackdrop"
-                    >
-                      Place Order
-                    </button>
-                  </div>
                 </div>
-              </div>
+                 
+              
             ))
           ) : (
             <div
@@ -307,7 +328,12 @@ const Cart1 = () => {
                             Delivery at <b className="text-dark">Home</b>
                           </h6>
                         </div>
-                        <h6   style={{ textTransform:'capitalize' }} className="timer-txt">{text.address} </h6>
+                        <h6
+                          style={{ textTransform: "capitalize" }}
+                          className="timer-txt"
+                        >
+                          {text.address}{" "}
+                        </h6>
                       </div>
                       <hr />
                       <div className="d-flex align-items-center">
@@ -315,8 +341,13 @@ const Cart1 = () => {
                           call
                         </span>
                         <h6 className="timer-txt ">
-                          <b   style={{ textTransform:'capitalize' }} className="timer-txt">{text.name}</b>  ,
-                          <b className="text-dark">+91 {text.phone}</b>
+                          <b
+                            style={{ textTransform: "capitalize" }}
+                            className="timer-txt"
+                          >
+                            {text.name}
+                          </b>{" "}
+                          ,<b className="text-dark">+91 {text.phone}</b>
                         </h6>
                       </div>
                       <hr />
