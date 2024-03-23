@@ -127,9 +127,9 @@ const Profile = () => {
           <div className="text-start">
             <h4 className="">My Addresses</h4>
             <hr/>
-            <h5 style={{textTransform:'capitalize'}}  className="mt-4">Name : <b className="timer-txt"> {text.name}</b></h5>
-            <h5 className="">Phone :<b className="timer-txt"> {text.phone}</b> </h5>
-            <h5 style={{textTransform:'capitalize'}} className="">Address : <b className="timer-txt"> {text.address}</b> </h5>
+            <h5 style={{textTransform:'capitalize',fontSize:'18px'}}  className="mt-4">Name : <b className="timer-txt"> {text.name}</b></h5>
+            <h5   style={{fontSize:'18px'}} className="">Phone :<b className="timer-txt"> {text.phone}</b> </h5>
+            <h5 style={{textTransform:'capitalize',fontSize:'18px'}} className="">Address : <b className="timer-txt"> {text.address}</b> </h5>
           </div>
         </div>
       </div>
