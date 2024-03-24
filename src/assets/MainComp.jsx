@@ -11,7 +11,7 @@ const MainComp = () => {
 
   const [food, setFood] = useState(foodList);
   const [scrollList, setScrollList] = useState(scroll);
-  const [cart, setCart] = useState([]);
+  
   const [addedToCart, setAddedToCart] = useState({});
 
   // items adding in the cart function
