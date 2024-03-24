@@ -36,7 +36,7 @@ const Cart1 = () => {
   const totalAmount = () => {
     let total = 0;
     data.map((caluculate) => {
-      total += caluculate.id * caluculate.cost;
+      total += caluculate.counti * caluculate.cost;
     });
     return total.toFixed(2);
   };
@@ -132,7 +132,7 @@ const Cart1 = () => {
               </h5>
             </div>
             <div className="pt-2">
-              <h5 className="d-flex align-items-center">Total Items Amount :  <span style={{marginTop:'4px',fontSize:'17px'}} className="material-symbols-outlined rupee-ico">
+              <h5 className="d-flex align-items-center">Total Items Amount :  <span style={{marginTop:'2px',fontSize:'17px'}} className="material-symbols-outlined rupee-ico">
                           currency_rupee
                         </span>{totalAmount()} </h5>
             </div>
