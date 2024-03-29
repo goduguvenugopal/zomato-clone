@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../App.css";
 import "../index.css";
 import { Link } from "react-router-dom";
@@ -14,9 +14,29 @@ const Profile = () => {
   const [image, setImage] = useContext(photoContext);
   const [text, setText] = useContext(profileContext);
 
-  const [name, setName] = useState(" ");
-  const [phone, setPhone] = useState(" ");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+
+  const [toggle1, setToggle1] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
+  const [toggle3, setToggle3] = useState(false);
+
+  const toggleFunc1 = () => {
+    setToggle1(true);
+    setToggle2(false);
+    setToggle3(false);
+  };
+  const toggleFunc2 = () => {
+    setToggle1(false);
+    setToggle2(true);
+    setToggle3(false);
+  };
+  const toggleFunc3 = () => {
+    setToggle1(false);
+    setToggle2(false);
+    setToggle3(true);
+  };
 
   const formFunc = (e) => {
     e.preventDefault();
@@ -116,21 +136,89 @@ const Profile = () => {
             </span>
             Edit
           </button>
-        </div> 
+        </div>
         <div className="online-card  container">
-          <div className="online-list"> 
-          <h5   className="timer-txt">ONLINE ORDERING</h5>
-          <h6 style={{cursor:'pointer'}} className="">Order History</h6>
-          <h6 style={{cursor:'pointer'}} className="">My Addresses</h6>
-          <h6  style={{cursor:'pointer'}}className="">Favorite Orders</h6>
+          <div className="online-list">
+            <h5 className="timer-txt">ONLINE ORDERING</h5>
+            <h6
+              style={{ cursor: "pointer" }}
+              className=""
+              onClick={() => toggleFunc3()}
+            >
+              Order History
+            </h6>
+            <h6
+              style={{ cursor: "pointer" }}
+              className=""
+              onClick={() => toggleFunc2()}
+            >
+              My Addresses
+            </h6>
+            <h6
+              style={{ cursor: "pointer" }}
+              className=""
+              onClick={() => toggleFunc1()}
+            >
+              Favorite Orders
+            </h6>
           </div>
-          <div className="text-start">
-            <h4 className="">My Addresses</h4>
-            <hr/>
-            <h5 style={{textTransform:'capitalize',fontSize:'18px'}}  className="mt-4">Name : <b className="timer-txt"> {text.name}</b></h5>
-            <h5   style={{fontSize:'18px'}} className="">Phone :<b className="timer-txt"> {text.phone}</b> </h5>
-            <h5 style={{textTransform:'capitalize',fontSize:'18px'}} className="">Address : <b className="timer-txt"> {text.address}</b> </h5>
-          </div>
+          {toggle2 && (
+            <div className="text-start">
+              <h4 className="">My Addresses</h4>
+              <hr />
+              <h5
+                style={{ textTransform: "capitalize", fontSize: "18px" }}
+                className="mt-4"
+              >
+                Name : <b className="timer-txt"> {text.name}</b>
+              </h5>
+              <h5 style={{ fontSize: "18px" }} className="">
+                Phone :<b className="timer-txt"> {text.phone}</b>{" "}
+              </h5>
+              <h5
+                style={{ textTransform: "capitalize", fontSize: "18px" }}
+                className=""
+              >
+                Address : <b className="timer-txt"> {text.address}</b>{" "}
+              </h5>
+            </div>
+          )}
+          {toggle3 && (
+            <div className="text-start">
+              <h4 className="">Order History</h4>
+              <hr />
+
+              <div className="text-center">
+                <span
+                  style={{ fontSize: "45px" }}
+                  className="material-symbols-outlined"
+                >
+                  shopping_cart
+                </span>
+                <br />
+                empty
+              </div>
+            </div>
+          )}
+          {toggle1 && (
+            <div className="text-start">
+              <h4 className="">Favourite Orders</h4>
+              <hr />
+
+
+              <div className="text-center">
+                <span
+                  style={{ fontSize: "45px" }}
+                  className="material-symbols-outlined"
+                >
+                  favorite
+                </span>
+                <br />
+                empty
+              </div>
+ 
+            </div>
+          )}
         </div>
       </div>
 
@@ -244,7 +332,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
