@@ -72,7 +72,14 @@ const SearchSection = () => {
       {toggle ? (
         <div className="speechtext-card">
           <div>
-            {retry ? <button onClick={()=> startRecognition()} className="btn text-white bg-primary">retry...</button> :  text ? (
+            {retry ? (
+              <button
+                onClick={() => startRecognition()}
+                className="btn text-white bg-primary"
+              >
+                retry...
+              </button>
+            ) : text ? (
               <h4
                 style={{ textTransform: "capitalize" }}
                 className="text-white"
@@ -80,9 +87,29 @@ const SearchSection = () => {
                 {text}
               </h4>
             ) : (
-              <h4 className="text-white">Listening...</h4>
+              <div className="text-center">
+                 <h5 className="text-white mt-2">Listening...</h5>
+                <div class=" spinner-grow text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow   text-danger" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow   text-warning" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow   text-info" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow   text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow   text-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                
+              </div>
             )}
-            
           </div>
           <button
             onClick={() => setToggle(false)}
