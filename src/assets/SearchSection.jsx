@@ -104,7 +104,7 @@ const SearchSection = () => {
                 <div class="spinner-grow   text-light" role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>
-                <div class="spinner-grow   text-dark" role="status">
+                <div class="spinner-grow   text-success" role="status">
                   <span class="visually-hidden">Loading...</span>
                 </div>
                 
