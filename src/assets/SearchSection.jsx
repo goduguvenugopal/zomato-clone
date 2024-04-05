@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import MainComp from "./MainComp";
 import MapComp from "./MapComp";
 import { states } from "./data";
+import "../App.css";
 
 const SearchSection = () => {
   const [state, setStaet] = useState(states);
   const [text, setText] = useState("");
   const [location, setLocation] = useState("");
   const [data, setData] = useState([]);
+  const recognition = useRef(null);
+  const [toggle, setToggle] = useState(false);
+  const [retry, setRetry] = useState(false);
 
   const accessKey = "80961f9e5f7483595ad990f02d1e6425";
   const id = "de66da03";
@@ -35,9 +39,62 @@ const SearchSection = () => {
     setLocation(selected);
   };
 
+  // speech recognition function
+  const startRecognition = () => {
+    setRetry(false);
+    setTimeout(() => {
+      setRetry(true);
+    }, 6000);
+
+    setText("");
+    setToggle(true);
+    if (!("webkitSpeechRecognition" in window)) {
+      alert("Speech recognition is not supported in your browser");
+      return;
+    }
+
+    recognition.current = new window.webkitSpeechRecognition();
+    recognition.current.onresult = handleResult;
+    recognition.current.start();
+  };
+
+  const handleResult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    setText(transcript);
+
+    setTimeout(() => {
+      setToggle(false);
+    }, 1500);
+  };
+
   return (
     <>
-      
+      {toggle ? (
+        <div className="speechtext-card">
+          <div>
+            {retry ? <button onClick={()=> startRecognition()} className="btn text-white bg-primary">retry...</button> :  text ? (
+              <h4
+                style={{ textTransform: "capitalize" }}
+                className="text-white"
+              >
+                {text}
+              </h4>
+            ) : (
+              <h4 className="text-white">Listening...</h4>
+            )}
+            
+          </div>
+          <button
+            onClick={() => setToggle(false)}
+            className="btn bg-white cardbtn-close"
+          >
+            Close
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className="pb-5 text-center pt-5">
         <h1 className="text-white zomato-heading">Zomato</h1>
         <h3 className="text-white">
@@ -95,7 +152,12 @@ const SearchSection = () => {
                   style={{ width: "60px" }}
                   className=" d-flex justify-content-between align-items-center"
                 >
-                  <span class="material-symbols-outlined">mic</span>
+                  <span
+                    onClick={startRecognition}
+                    class="material-symbols-outlined"
+                  >
+                    mic
+                  </span>
                   <button type="submit" className=" sub-bt">
                     <span className="material-symbols-outlined pt-1 search-icon">
                       search

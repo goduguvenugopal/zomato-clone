@@ -32,6 +32,26 @@
   color: white;
 }
 
+/* speech to text styling  */
+
+.speechtext-card{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(33, 33, 33);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   
+}
+
+.cardbtn-close{
+  position: fixed;
+  bottom: 20px;
+}
+
 @media only screen and (min-width: 768px) {
   .search-card {
     height: 55px;
