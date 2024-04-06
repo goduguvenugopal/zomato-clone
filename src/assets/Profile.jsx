@@ -38,13 +38,21 @@ const Profile = () => {
     setToggle3(true);
   };
 
-  const formFunc = (e) => {
+  const formFunc = async (e) => {
     e.preventDefault();
     setText({ name, phone, address });
     setName(" ");
     setPhone(" ");
     setAddress(" ");
     notify();
+
+    await fetch("localhost:3000/employees/add-emp", {
+      method: "POST",
+      headers: {
+        "content-Type": "Application/json",
+      },
+      body: JSON.stringify(text),
+    });
   };
 
   // preview image function
@@ -205,7 +213,6 @@ const Profile = () => {
               <h4 className="">Favourite Orders</h4>
               <hr />
 
-
               <div className="text-center">
                 <span
                   style={{ fontSize: "45px" }}
@@ -216,7 +223,6 @@ const Profile = () => {
                 <br />
                 empty
               </div>
- 
             </div>
           )}
         </div>
