@@ -37,6 +37,8 @@ const Profile = () => {
     setToggle2(false);
     setToggle3(true);
   };
+ 
+  const formData = { name, phone, address }
 
   const formFunc = async (e) => {
     e.preventDefault();
@@ -46,13 +48,14 @@ const Profile = () => {
     setAddress(" ");
     notify();
 
-    await fetch("localhost:7000/employees/add-emp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Corrected header
-      },
-      body: JSON.stringify({ name, phone, address }),
-    });
+     await fetch("https://vkzomato-server.onrender.com/employees/add-emp", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json", // Corrected header
+  },
+  body: JSON.stringify(formData)
+});
+
   };
 
   // preview image function
@@ -283,6 +286,7 @@ const Profile = () => {
                     required
                     style={{ textTransform: "capitalize" }}
                     value={name}
+                    name="name"
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     className="form-control"
@@ -295,6 +299,7 @@ const Profile = () => {
                   <input
                     required
                     value={phone}
+                    name="phone"
                     onChange={(e) => setPhone(e.target.value)}
                     type="number"
                     className="form-control"
@@ -308,6 +313,7 @@ const Profile = () => {
                     required
                     style={{ textTransform: "capitalize" }}
                     value={address}
+                    name="address"
                     onChange={(e) => setAddress(e.target.value)}
                     type="text"
                     className="form-control"
