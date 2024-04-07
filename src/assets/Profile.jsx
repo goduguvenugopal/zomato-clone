@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const notify = () => toast("Your Profile Has Been Updated SuccessFully ");
-
+const notify1 = () => toast("Your Profile Has not Been Updated ");
 //  form function
 const Profile = () => {
   const [image, setImage] = useContext(photoContext);
@@ -44,7 +44,7 @@ const Profile = () => {
     setName(" ");
     setPhone(" ");
     setAddress(" ");
-    
+
     try {
       const response = await fetch(
         "https://vkzomato-server.onrender.com/employees/add-emp",
@@ -60,6 +60,7 @@ const Profile = () => {
       if (response.ok) {
         notify();
       } else {
+        notify1();
         console.error(`HTTP error! Status: ${response.status}`);
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
