@@ -38,7 +38,12 @@ const Profile = () => {
     setToggle3(true);
   };
  
-   
+  const employeeData = {
+    name: "John Doe",
+    number: 25968415984,
+    address: "Engineering"
+    // Add any other relevant properties
+  };
 
   const formFunc = async (e) => {
     e.preventDefault();
@@ -53,7 +58,7 @@ const Profile = () => {
   headers: {
     "Content-Type": "application/json", // Corrected header
   },
-  body: JSON.stringify(text)
+  body: JSON.stringify(employeeData)
 });
 
   };
