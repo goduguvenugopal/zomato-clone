@@ -37,8 +37,6 @@ const Profile = () => {
     setToggle2(false);
     setToggle3(true);
   };
- 
-   
 
   const formFunc = async (e) => {
     e.preventDefault();
@@ -48,14 +46,13 @@ const Profile = () => {
     setAddress(" ");
     notify();
 
-     await fetch("https://vkzomato-server.onrender.com/employees/add-emp", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json", // Corrected header
-  },
-  body: JSON.stringify(text)
-});
-
+    await fetch("https://vkzomato-server.onrender.com/employees/add-emp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Corrected header
+      },
+      body: JSON.stringify(text),
+    });
   };
 
   // preview image function
