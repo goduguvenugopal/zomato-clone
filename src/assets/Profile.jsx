@@ -46,14 +46,13 @@ const Profile = () => {
     setAddress(" ");
     notify();
 
-     await fetch("https://vkzomato-server.onrender.com/employees/add-emp", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json", // Corrected header
-  },
-  body: JSON.stringify({ name, phone, address }),
-});
-
+    await fetch("localhost:7000/employees/add-emp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Corrected header
+      },
+      body: JSON.stringify({ name, phone, address }),
+    });
   };
 
   // preview image function
