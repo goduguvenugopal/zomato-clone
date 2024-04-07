@@ -46,7 +46,7 @@ const Profile = () => {
     setAddress(" ");
     notify();
 
-    await fetch("localhost:7000/employees/add-emp", {
+    await fetch("https://vkzomato-server.onrender.com", {
       method: "POST",
       headers: {
         "content-Type": "Application/json",
