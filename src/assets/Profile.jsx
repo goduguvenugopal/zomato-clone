@@ -46,7 +46,7 @@ const Profile = () => {
     setAddress(" ");
     notify();
 
-    await fetch("localhost:3000/employees/add-emp", {
+    await fetch("localhost:7000/employees/add-emp", {
       method: "POST",
       headers: {
         "content-Type": "Application/json",
