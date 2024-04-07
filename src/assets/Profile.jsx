@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const notify = () => toast("Your Profile Has Been Updated SuccessFully ");
 const notify1 = () => toast("Your Profile Has not Been Updated ");
+
+
 //  form function
 const Profile = () => {
   const [image, setImage] = useContext(photoContext);
