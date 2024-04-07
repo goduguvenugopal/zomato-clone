@@ -38,7 +38,7 @@ const Profile = () => {
     setToggle3(true);
   };
  
-  const formData = { name, phone, address }
+   
 
   const formFunc = async (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ const Profile = () => {
   headers: {
     "Content-Type": "application/json", // Corrected header
   },
-  body: JSON.stringify(formData)
+  body: JSON.stringify(text)
 });
 
   };

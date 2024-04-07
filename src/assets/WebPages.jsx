@@ -8,7 +8,7 @@ export const photoContext = createContext();
 const WebPages = () => {
   const [data, setData] = useState([]);
   const [photo, setPhoto] = useState( '/image/pro-image.png');
-  const [text, setText] = useState({ name:'venugopal', phone:'9059746913', address:'9-585 pagidyala , kurnool , andhra pradesh' });
+  const [text, setText] = useState({ name:'', phone:'', address:'' });
   return (
     <div>
       <cart1Context.Provider value={[data, setData]}>
