@@ -44,15 +44,28 @@ const Profile = () => {
     setName(" ");
     setPhone(" ");
     setAddress(" ");
-    notify();
+    
+    try {
+      const response = await fetch(
+        "https://vkzomato-server.onrender.com/employees/add-emp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(text),
+        }
+      );
 
-    await fetch("https://vkzomato-server.onrender.com/employees/add-emp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Corrected header
-      },
-      body: JSON.stringify(text),
-    });
+      if (response.ok) {
+        notify();
+      } else {
+        console.error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   // preview image function
