@@ -15,7 +15,7 @@ const notify1 = () => toast("Your Profile Has not Been Updated ");
 const Profile = () => {
   const [image, setImage] = useContext(photoContext);
   const [text, setText] = useContext(profileContext);
-
+  const [update, setUpdate] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -39,15 +39,16 @@ const Profile = () => {
     setToggle2(false);
     setToggle3(true);
   };
-  
-const formData = { name, phone, address }
+
+  const formData = { name, phone, address }
 
   const formFunc = async (e) => {
     e.preventDefault();
-    
-    
+
+
 
     try {
+      setUpdate(true)
       const response = await fetch(
         "https://vkzomato-server.onrender.com/employees/add-emp",
         {
@@ -65,9 +66,10 @@ const formData = { name, phone, address }
         setPhone(" ");
         setAddress(" ");
         setText({ name, phone, address });
-        
+        setUpdate(false)
       } else {
         notify1();
+        setUpdate(false)
         console.error(`HTTP error! Status: ${response.status}`);
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -353,9 +355,13 @@ const formData = { name, phone, address }
                   >
                     Close
                   </button>
-                  <button type="submit" className="btn btn-primary">
+                  {update ? <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" style={{marginRight:"5px"}} role="status" aria-hidden="true"></span>
+                    Updating...
+                  </button> : <button type="submit" className="btn btn-primary">
                     Update
-                  </button>
+                  </button>}
+
                 </div>
               </form>
             </div>
