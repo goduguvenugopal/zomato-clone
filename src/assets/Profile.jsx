@@ -39,13 +39,13 @@ const Profile = () => {
     setToggle2(false);
     setToggle3(true);
   };
+  
+const formData = { name, phone, address }
 
   const formFunc = async (e) => {
     e.preventDefault();
-    setText({ name, phone, address });
-    setName(" ");
-    setPhone(" ");
-    setAddress(" ");
+    
+    
 
     try {
       const response = await fetch(
@@ -55,12 +55,17 @@ const Profile = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(text),
+          body: JSON.stringify(formData),
         }
       );
 
       if (response.ok) {
         notify();
+        setName(" ");
+        setPhone(" ");
+        setAddress(" ");
+        setText({ name, phone, address });
+        
       } else {
         notify1();
         console.error(`HTTP error! Status: ${response.status}`);
