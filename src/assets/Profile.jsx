@@ -46,7 +46,7 @@ const Profile = () => {
   const formFunc = async (e) => {
     e.preventDefault();
 
-    var data = { name: name, phone: phone, address: address };
+    var data = { Name: name, phone: phone, address: address };
     localStorage.setItem("data", JSON.stringify(data));
 
 
