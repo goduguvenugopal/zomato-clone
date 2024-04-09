@@ -11,9 +11,17 @@ const WebPages = () => {
   const [text, setText] = useState({ name: 'Profile', phone: '9059746913', address: 'Pagidyala, Kurnool, Andhrapradesh.' });
 
   useEffect(() => {
-    setText(JSON.parse(localStorage.getItem("data")));
-    // setPhoto(localStorage.getItem("image"));
 
+    const data = localStorage.getItem("data");
+    if (data) {
+      setText(JSON.parse(data));
+    }
+
+      const imageData = localStorage.getItem("image");
+    if (imageData) {
+      setPhoto(imageData); // Set image data directly
+    }
+    
   }, []);
 
 
