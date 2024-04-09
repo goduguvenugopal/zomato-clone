@@ -46,13 +46,7 @@ const Profile = () => {
   const formFunc = async (e) => {
     e.preventDefault();
 
-    var data = { name: name, phone: phone, address: address };
-    localStorage.setItem("data", JSON.stringify(data));
-
-
-
-
-    try {
+     try {
       setUpdate(true)
       const response = await fetch(
         "https://vkzomato-server.onrender.com/employees/add-emp",
@@ -72,6 +66,8 @@ const Profile = () => {
         setAddress(" ");
         setText({ name, phone, address });
         setUpdate(false)
+        var data = { name: name, phone: phone, address: address };
+        localStorage.setItem("data", JSON.stringify(data));
       } else {
         notify1();
         setUpdate(false)
