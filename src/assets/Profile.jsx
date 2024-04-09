@@ -46,7 +46,7 @@ const Profile = () => {
   const formFunc = async (e) => {
     e.preventDefault();
 
-    var data = { Name: name, phone: phone, address: address };
+    var data = { name: name, phone: phone, address: address };
     localStorage.setItem("data", JSON.stringify(data));
 
 
@@ -91,7 +91,7 @@ const Profile = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        localStorage.setItem("image", reader.result)
+        // localStorage.setItem("image", reader.result)
         setImage(reader.result);
       };
       reader.readAsDataURL(file);
