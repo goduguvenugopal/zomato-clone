@@ -19,6 +19,7 @@ const Profile = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [zoomin, setZoomin] = useState(false);
 
   const [toggle1, setToggle1] = useState(false);
   const [toggle2, setToggle2] = useState(false);
@@ -148,7 +149,7 @@ const Profile = () => {
       <div className="profile-section">
         <div className="mt-4  d-flex align-items-center justify-content-between  container profile-card">
           <div className="image-card d-flex flex-wrap justify-content-between align-items-center">
-            <img src={image} className="profi1-img" />
+            <img src={image} style={{cursor:"pointer"}} onClick={() => setZoomin(true)} className="profi1-img" />
             <h5
               style={{ textTransform: "capitalize" }}
               className="profi1-name text-white"
@@ -156,7 +157,9 @@ const Profile = () => {
               {text.name}
             </h5>
           </div>
-
+          {zoomin ? <div onClick={() => setZoomin(false)} className="zoomcard">
+            <img src={image} className="zoom-img" />
+          </div> : ""}
           <button
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
@@ -356,7 +359,7 @@ const Profile = () => {
                     Close
                   </button>
                   {update ? <button class="btn btn-primary" type="button" disabled>
-                    <span class="spinner-border spinner-border-sm" style={{marginRight:"5px"}} role="status" aria-hidden="true"></span>
+                    <span class="spinner-border spinner-border-sm" style={{ marginRight: "5px" }} role="status" aria-hidden="true"></span>
                     Updating...
                   </button> : <button type="submit" className="btn btn-primary">
                     Update

@@ -22,7 +22,14 @@
   .image-card {
     width: 280px;
   }
-
+  .zoomcard {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
   .profi1-img {
     width: 170px;
     border-radius: 50%;
@@ -67,6 +74,28 @@
   }
 }
 
+.zoomcard {
+  background-color: rgb(16, 16, 16);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+   
+   
+}
+.zoom-img{
+  height: 25rem;
+  max-width: 100%;
+  margin-top: 5rem;
+  border-radius: 10%;
+ 
+}
 .profi2-img {
   width: 100px;
   border-radius: 50%;
@@ -75,6 +104,7 @@
   background-color: white;
   border: 1px solid rgb(174, 172, 172);
   margin-right: 5px;
+
 }
 
 .logo-img1 {

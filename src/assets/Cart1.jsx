@@ -191,7 +191,7 @@ const Cart1 = () => {
               <div className="">
                 <h5 className="mb-3">No Items In The Cart </h5>
                 <button className="btn btn-primary ">
-                  Click Home To Go Back
+                  <Link to="/" className="text-white" style={{textDecoration:"none"}}> Go to Home</Link>
                 </button>
               </div>
             </div>
