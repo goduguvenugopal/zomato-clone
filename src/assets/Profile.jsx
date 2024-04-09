@@ -91,7 +91,7 @@ const Profile = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        // localStorage.setItem("image", reader.result)
+        localStorage.setItem("image", reader.result)
         setImage(reader.result);
       };
       reader.readAsDataURL(file);
