@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import App from "../App";
 
 export const cart1Context = createContext();
@@ -7,8 +7,17 @@ export const photoContext = createContext();
 
 const WebPages = () => {
   const [data, setData] = useState([]);
-  const [photo, setPhoto] = useState( '/image/pro-image.png');
-  const [text, setText] = useState({ name:'Profile', phone:'9059746913', address:'Pagidyala, Kurnool, Andhrapradesh.' });
+  const [photo, setPhoto] = useState('/image/pro-image.png');
+  const [text, setText] = useState({ name: 'Profile', phone: '9059746913', address: 'Pagidyala, Kurnool, Andhrapradesh.' });
+
+  useEffect(() => {
+    setText(JSON.parse(localStorage.getItem("data")));
+    setPhoto(localStorage.getItem("image"));
+
+  }, []);
+
+
+
   return (
     <div>
       <cart1Context.Provider value={[data, setData]}>

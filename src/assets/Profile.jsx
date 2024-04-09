@@ -46,6 +46,10 @@ const Profile = () => {
   const formFunc = async (e) => {
     e.preventDefault();
 
+    var data = { name: name, phone: phone, address: address };
+    localStorage.setItem("data", JSON.stringify(data));
+
+
 
 
     try {
@@ -79,12 +83,15 @@ const Profile = () => {
     }
   };
 
+ 
+
   // preview image function
   const uploadImage = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
+        localStorage.setItem("image", reader.result)
         setImage(reader.result);
       };
       reader.readAsDataURL(file);
@@ -149,7 +156,7 @@ const Profile = () => {
       <div className="profile-section">
         <div className="mt-4  d-flex align-items-center justify-content-between  container profile-card">
           <div className="image-card d-flex flex-wrap justify-content-between align-items-center">
-            <img src={image} style={{cursor:"pointer"}} onClick={() => setZoomin(true)} className="profi1-img" />
+            <img src={image} style={{ cursor: "pointer" }} onClick={() => setZoomin(true)} className="profi1-img" />
             <h5
               style={{ textTransform: "capitalize" }}
               className="profi1-name text-white"
