@@ -12,7 +12,7 @@ const WebPages = () => {
 
   useEffect(() => {
     setText(JSON.parse(localStorage.getItem("data")));
-    setPhoto(localStorage.getItem("image"));
+    // setPhoto(localStorage.getItem("image"));
 
   }, []);
 
