@@ -55,7 +55,7 @@ const Navbar = () => {
                 </Link>
               </h5>
 
-              {!token ? <h5 onClick={() => setToken(null)}
+              {token ? <h5 onClick={() => setToken(null)}
                 className=" text-white nav-link home-text">
                 Log out
               </h5> : <h5
@@ -64,12 +64,9 @@ const Navbar = () => {
                   Log in
                 </Link>
               </h5>}
-              <h5
-                className=" text-white home-text">
-                <Link className="home-text nav-link text-white" to="/login">
-                  Log in
-                </Link>
-              </h5>
+
+
+             
 
               <h5 style={{ textTransform: 'capitalize' }} className="home-text text-white">
                 <Link style={{ textTransform: 'capitalize' }} className="home-text nav-link text-white" to="/profile">
