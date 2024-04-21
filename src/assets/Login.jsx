@@ -1,4 +1,4 @@
-import React, { useState, useContext} from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 import "../App.css";
 import { Link,  useNavigate } from "react-router-dom";
 import { photoContext, profileContext, tokenContext } from "./WebPages";
@@ -35,7 +35,7 @@ const Login = () => {
         }
  
     const userDetails = {email : email1 , password : password1 , confirmpassword : password2}
-    console.log(userDetails)
+    
 
 
    const signupFunc = async (e) =>{
@@ -53,9 +53,13 @@ const Login = () => {
     }
    }
    const navigate = useNavigate();
-        if(token){
-          return navigate("/")
-        }
+   useEffect(()=>{
+   
+    if(token){
+      return navigate("/")
+    }
+   })
+  
 
     const checkFunc = () => {
         setCheck(!check);

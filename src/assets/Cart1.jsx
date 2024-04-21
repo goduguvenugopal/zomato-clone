@@ -1,12 +1,13 @@
-import React, { useState, useContext } from "react";
-import { cart1Context, photoContext, profileContext } from "./WebPages";
+import React, { useState, useContext, useEffect } from "react";
+import { cart1Context, photoContext, profileContext, tokenContext } from "./WebPages";
 import "../App.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Footer";
 
 const Cart1 = () => {
+  const [token, setToken] = useContext(tokenContext);
   const [data, setData] = useContext(cart1Context);
   const [order, setOrder] = useState([]);
   const [count, setCount] = useState(1);
@@ -66,7 +67,14 @@ const Cart1 = () => {
     setCount(count - 1);
   };
  
+const navigate = useNavigate()
+useEffect(()=>{
+  if(!token){
+    return navigate("/login")
+  }
+},[])
 
+ 
   return (
     <>
       <nav className="navbar shadow navbar-expand-lg navbar-light bg-light fixed-top">

@@ -3,11 +3,11 @@ import "../App.css";
 import SearchSection from "./SearchSection";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import { photoContext, profileContext } from "./WebPages";
+import { photoContext, profileContext, tokenContext } from "./WebPages";
 // import '../index.css'
 
 const Navbar = () => {
-
+  const [token, setToken] = useContext(tokenContext);
   const [image, setImage] = useContext(photoContext);
   const [text, setText] = useContext(profileContext)
 
@@ -54,15 +54,23 @@ const Navbar = () => {
                   Cart
                 </Link>
               </h5>
-              <h5
-                className=" text-white home-text"
 
-              >
+              {!token ? <h5 onClick={() => setToken(null)}
+                className=" text-white nav-link home-text">
+                Log out
+              </h5> : <h5
+                className=" text-white home-text">
                 <Link className="home-text nav-link text-white" to="/login">
                   Log in
                 </Link>
-
+              </h5>}
+              <h5
+                className=" text-white home-text">
+                <Link className="home-text nav-link text-white" to="/login">
+                  Log in
+                </Link>
               </h5>
+
               <h5 style={{ textTransform: 'capitalize' }} className="home-text text-white">
                 <Link style={{ textTransform: 'capitalize' }} className="home-text nav-link text-white" to="/profile">
                   <img src={image} className="logo-img1" alt="zomato" />
