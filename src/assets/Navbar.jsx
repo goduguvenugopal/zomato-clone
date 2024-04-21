@@ -66,14 +66,14 @@ const Navbar = () => {
               </h5>}
 
 
-             
-
-              <h5 style={{ textTransform: 'capitalize' }} className="home-text text-white">
+             {token &&  <h5 style={{ textTransform: 'capitalize' }} className="home-text text-white">
                 <Link style={{ textTransform: 'capitalize' }} className="home-text nav-link text-white" to="/profile">
                   <img src={image} className="logo-img1" alt="zomato" />
                   {text.name}
                 </Link>
-              </h5>
+              </h5>}
+
+              
             </div>
           </div>
         </div>

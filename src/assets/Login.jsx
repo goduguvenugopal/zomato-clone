@@ -1,16 +1,14 @@
 import React, { useState, useContext, useEffect} from 'react'
 import "../App.css";
 import { Link,  useNavigate } from "react-router-dom";
-import { photoContext, profileContext, tokenContext } from "./WebPages";
+import {tokenContext } from "./WebPages";
 import Footer from './Footer';
 import axios from 'axios';
 
 
 const Login = () => {
     const [token, setToken] = useContext(tokenContext);
-    const [image, setImage] = useContext(photoContext);
-    const [text, setText] = useContext(profileContext)
-    const [check, setCheck] = useState(true);
+      const [check, setCheck] = useState(true);
     const [toggle , setToggle] = useState(true)
     const [password ,setPassword] = useState("")
     const [email, setEmail] = useState("")
@@ -101,19 +99,7 @@ const Login = () => {
                                     Home
                                 </Link>
                             </h5>
-                            <h5
-                                style={{ textTransform: "capitalize" }}
-                                className="home-text text-dark"
-                            >
-                                <Link
-                                    style={{ textTransform: "capitalize" }}
-                                    className="home-text nav-link text-dark"
-                                    to="/profile"
-                                >
-                                    <img src={image} className="logo-img1" alt="profile" />
-                                    {text.name}
-                                </Link>
-                            </h5>
+                             
                         </div>
                     </div>
                 </div>
