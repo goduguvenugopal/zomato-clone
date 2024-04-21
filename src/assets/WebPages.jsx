@@ -4,8 +4,11 @@ import App from "../App";
 export const cart1Context = createContext();
 export const profileContext = createContext();
 export const photoContext = createContext();
+export const tokenContext = createContext();
+
 
 const WebPages = () => {
+  const [token, setToken] = useState(null);
   const [data, setData] = useState([]);
   const [photo, setPhoto] = useState('/image/pro-image.png');
   const [text, setText] = useState({ name: 'Profile', phone: '9059746913', address: 'Pagidyala, Kurnool, Andhrapradesh.' });
@@ -28,6 +31,7 @@ const WebPages = () => {
 
   return (
     <div>
+      <tokenContext.Provider value={[token, setToken] }> 
       <cart1Context.Provider value={[data, setData]}>
         <profileContext.Provider value={[text, setText]}>
           <photoContext.Provider value={[photo, setPhoto]}>
@@ -35,6 +39,7 @@ const WebPages = () => {
           </photoContext.Provider>
         </profileContext.Provider>
       </cart1Context.Provider>
+      </tokenContext.Provider>
     </div>
   );
 };
