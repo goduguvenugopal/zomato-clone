@@ -12,6 +12,14 @@ const Navbar = () => {
   const [text, setText] = useContext(profileContext)
 
 
+  const removeStorageFunc = () => {
+    setToken(null)
+    localStorage.removeItem("token")
+    // localStorage.removeItem("data")
+    // localStorage.removeItem("image")
+  }
+
+
   return (
     <div className="header  pt-2">
       <nav className="navbar navbar-expand-lg navbar-light ">
@@ -55,8 +63,8 @@ const Navbar = () => {
                 </Link>
               </h5>
 
-              {token ? <h5 onClick={() => setToken(null)}
-                className=" text-white nav-link home-text">
+              {token ? <h5 onClick={removeStorageFunc}
+                className=" text-white nav-link home-text" style={{ cursor: 'pointer' }} >
                 Log out
               </h5> : <h5
                 className=" text-white home-text">

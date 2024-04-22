@@ -18,6 +18,12 @@ const MainComp = () => {
 
   const filterFunc = (selectedfFood) => {
     const filtered = foodList.find((item) => item.name === selectedfFood.name);
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || []; // Retrieve existing cart items
+    if (!Array.isArray(cartItems)) {
+        cartItems = []; // Ensure cartItems is an array
+    }
+    const updatedCartItems = [...cartItems,  { ...filtered, counti: 1 }]; // Updated cart items
+    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
 
     setData([...data, { ...filtered, counti: 1 }]);
     // addcart button function

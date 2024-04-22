@@ -19,8 +19,24 @@ const Cart1 = () => {
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
   // remove items in cart functions
   const removeFunc = (del) => {
-    const updatedCart = data.filter((rem) => rem.name !== del.name);
-    setData(updatedCart);
+    // const updatedCart = data.filter((rem) => rem.name !== del.name);
+    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    // Find the index of the item to remove
+    const indexToRemove = cartItems.findIndex((item) => item.name === del);
+    
+    // If the item is found, remove it
+    if (indexToRemove !== -1) {
+        cartItems.splice(indexToRemove, 1);
+        
+        // Update localStorage with the modified cart items
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        
+        // Optionally, update state or trigger any other necessary actions
+        // setData([...cartItems]); // Update state with the modified cart items
+    }
+   
+    // setData(updatedCart);
     notify();
   };
 

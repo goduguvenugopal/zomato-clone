@@ -17,71 +17,81 @@ const Login = () => {
     const [password1, setPassword1] = useState("")
     const [email1, setEmail1] = useState("")
     const [password2, setPassword2] = useState("")
-
+    const [signToggle, setSignToggle] = useState(false)
+    const [loginToggle, setLoginToggle] = useState(false)
 
 
     const notify1 = () => toast("User already existed with this Email");
     const notify2 = () => toast("Signed up Successfully ");
-    const notify3 = () => toast("Logged In up Successfully ");
-    const notify4 = () => toast("You Have Entered Wrong Password And Email, If New User Sign up. ");
+    const notify3 = () => toast("Logged In Successfully ");
+    const notify4 = () => toast("You Have Entered Wrong Password And Email. ");
     const notify5 = () => toast("Confirm Password Not Matched ");
     //  login function 
 
     const loginFunc = async (e) => {
         e.preventDefault()
+        setLoginToggle(true)
         try {
             const response = await axios.post("https://server-axck.onrender.com/login", { email, password })
 
             setToken(response.data.token)
-             
+            localStorage.setItem("token", JSON.stringify(response.data.token))
+
             setEmail("")
             setPassword("")
-            notify3
+            notify3()
+            setLoginToggle(false)
         } catch (error) {
             console.log(error)
-           
-             
-                notify4
-          
+            setLoginToggle(false)
+
+            notify4()
+
         }
     }
 
     const userDetails = { email: email1, password: password1, confirmpassword: password2 }
 
-  
 
 
+    // signup function 
 
     const signupFunc = async (e) => {
         e.preventDefault();
-       
+        setSignToggle(true)
+
         try {
             await axios.post("https://server-axck.onrender.com/register", userDetails);
-               
-                setToggle(true);
-                notify2();    
+
+            setToggle(true);
+            notify2();
+            setSignToggle(false)
         }
         catch (error) {
             console.log(error);
             notify1();
-          
+            setSignToggle(false)
+
         }
     }
-    
+
     const navigate = useNavigate();
     useEffect(() => {
 
         if (token) {
-            return navigate("/")
+            setTimeout(() => {
+                return navigate("/")
+            }, 1500);
+
         }
     })
 
 
     const checkFunc = () => {
-        
-        if(password1 !== password2){
+
+        if (password1 !== password2) {
             notify5();
-             
+
         }
     };
 
@@ -167,12 +177,22 @@ const Login = () => {
                                 <label htmlFor="floatingInput1">Password</label>
                             </div>
 
-                            <button type='submit'
-                                style={{ height: "45px" }}
-                                className="btn btn-danger w-100 fw-bold"
-                            >
-                                Login
+                            {loginToggle ? <button style={{ height: "45px" }} className="btn btn-danger w-100 fw-bold" type="button" disabled="">
+                                <span style={{ marginRight: "1rem" }}
+                                    className="spinner-border spinner-border-sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                />
+                                Logging in...
                             </button>
+                                : <button type='submit'
+                                    style={{ height: "45px" }}
+                                    className="btn btn-danger w-100 fw-bold"
+                                >
+                                    Login
+                                </button>}
+
+
 
                             <div className="py-3 text-center ">
                                 <h5 className="mb-3">or</h5>
@@ -259,7 +279,7 @@ const Login = () => {
                                 </div>
 
                                 <input
-                                required
+                                    required
                                     value={check}
                                     onClick={checkFunc}
                                     style={{ marginRight: "5px" }}
@@ -282,14 +302,25 @@ const Login = () => {
                                         Content Policies
                                     </span>
                                 </span>
-                                <button
-                                    type='submit'
-                                    disabled={check !== true && password1 !== password2}
-                                    style={{ height: "45px" }}
-                                    className=" mt-3 btn btn-primary w-100 fw-bold"
-                                >
-                                    Sign up
+                                {signToggle ? <button style={{ height: "45px" }} className=" mt-3 btn btn-primary w-100 fw-bold" type="button" disabled="">
+                                    <span style={{ marginRight: "1rem" }}
+                                        className="spinner-border spinner-border-sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
+                                    Signing up...
                                 </button>
+                                    : <button
+                                        type='submit'
+                                        disabled={check !== true && password1 !== password2}
+                                        style={{ height: "45px" }}
+                                        className=" mt-3 btn btn-primary w-100 fw-bold"
+                                    >
+                                        Sign up
+                                    </button>}
+
+
+
 
                             </div>
                         </form>
