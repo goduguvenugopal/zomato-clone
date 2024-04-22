@@ -19,7 +19,9 @@ const Login = () => {
     const [password2, setPassword2] = useState("")
     const [signToggle, setSignToggle] = useState(false)
     const [loginToggle, setLoginToggle] = useState(false)
-
+    const [eyeOpen, setEyeOpen] = useState(true)
+    const [eyeOpen1, setEyeOpen1] = useState(true)
+    const [eyeOpen3, setEyeOpen3] = useState(true)
 
     const notify1 = () => toast("User already existed with this Email");
     const notify2 = () => toast("Signed up Successfully ");
@@ -95,6 +97,18 @@ const Login = () => {
         }
     };
 
+
+    const eyeFunc = () => {
+        setEyeOpen(!eyeOpen)
+    }
+
+    const eyeFunc1 = () => {
+        setEyeOpen1(!eyeOpen1)
+    }
+
+    const eyeFunc3 = () => {
+        setEyeOpen3(!eyeOpen3)
+    }
     return (
         <>
             <ToastContainer />
@@ -167,7 +181,7 @@ const Login = () => {
                             <div className="form-floating mb-4">
                                 <input
                                     required
-                                    type="password"
+                                    type={eyeOpen3 ? "password" : "text"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="form-control"
@@ -175,6 +189,11 @@ const Login = () => {
                                     placeholder="name@example.com"
                                 />
                                 <label htmlFor="floatingInput1">Password</label>
+                                <div className='eye-card'> {eyeOpen3 ? <span onClick={eyeFunc3} class="material-symbols-outlined">
+                                        visibility
+                                    </span> : <span onClick={eyeFunc3} class="material-symbols-outlined">
+                                        visibility_off
+                                    </span>}</div>
                             </div>
 
                             {loginToggle ? <button style={{ height: "45px" }} className="btn btn-danger w-100 fw-bold" type="button" disabled="">
@@ -258,24 +277,36 @@ const Login = () => {
                                         required
 
                                         onChange={(e) => setPassword1(e.target.value)}
-                                        type="password"
+                                        type={eyeOpen ? "password" : "text"}
                                         className="form-control"
                                         id="floating"
                                         placeholder="name@example.com"
                                     />
                                     <label htmlFor="floating">Password</label>
+                                    <div className='eye-card'> {eyeOpen ? <span onClick={eyeFunc} class="material-symbols-outlined">
+                                        visibility
+                                    </span> : <span onClick={eyeFunc} class="material-symbols-outlined">
+                                        visibility_off
+                                    </span>}</div>
+
+                                    
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input
                                         required
                                         onChange={(e) => setPassword2(e.target.value)}
 
-                                        type="password"
+                                        type = {eyeOpen1 ? "password" : "text"}
                                         className="form-control"
                                         id="float-Input"
                                         placeholder="name@example.com"
                                     />
                                     <label htmlFor="float-Input">Confirm Password</label>
+                                    <div className='eye-card'> {eyeOpen1 ? <span onClick={eyeFunc1} class="material-symbols-outlined">
+                                        visibility
+                                    </span> : <span onClick={eyeFunc1} class="material-symbols-outlined">
+                                        visibility_off
+                                    </span>}</div>
                                 </div>
 
                                 <input
