@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../App.css";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
-import { photoContext, profileContext } from "./WebPages";
+import { photoContext, profileContext, tokenContext } from "./WebPages";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,6 +13,7 @@ const notify1 = () => toast("Your Profile Has not Been Updated ");
 
 //  form function
 const Profile = () => {
+  const [token, setToken] = useContext(tokenContext);
   const [image, setImage] = useContext(photoContext);
   const [text, setText] = useContext(profileContext);
   const [update, setUpdate] = useState(false);
@@ -46,7 +47,7 @@ const Profile = () => {
   const formFunc = async (e) => {
     e.preventDefault();
 
-     try {
+    try {
       setUpdate(true)
       const response = await fetch(
         "https://vkzomato-server.onrender.com/employees/add-emp",
@@ -79,7 +80,7 @@ const Profile = () => {
     }
   };
 
- 
+
 
   // preview image function
   const uploadImage = (e) => {
@@ -94,6 +95,16 @@ const Profile = () => {
     }
   };
 
+  const navigate = useNavigate()
+
+  useEffect(() => {
+
+    if (!token) {
+      return navigate("/login")
+    }
+  }, [])
+
+  
   return (
     <>
       <ToastContainer />
