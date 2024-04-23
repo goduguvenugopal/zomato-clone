@@ -50,7 +50,7 @@ const Profile = () => {
     try {
       setUpdate(true)
       const response = await fetch(
-        "https://vkzomato-server.onrender.com/employees/add-emp",
+        "https://server-axck.onrender.com/profile",
         {
           method: "POST",
           headers: {
