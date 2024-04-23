@@ -199,7 +199,7 @@ const Login = () => {
                             </div>
 
                             {loginToggle ? <button style={{ height: "45px" }} className="btn btn-danger w-100 fw-bold" type="button" disabled="">
-                                <span style={{ marginRight: "1rem" }}
+                                <span style={{ marginRight: "0.4rem" }}
                                     className="spinner-border spinner-border-sm"
                                     role="status"
                                     aria-hidden="true"
@@ -339,8 +339,8 @@ value={email1}
                                         Content Policies
                                     </span>
                                 </span>
-                                {signToggle ? <button style={{ height: "45px" }} className=" mt-3 btn btn-primary w-100 fw-bold" type="button" disabled="">
-                                    <span style={{ marginRight: "1rem" }}
+                                {!signToggle ? <button style={{ height: "45px" }} className=" mt-3 btn btn-primary w-100 fw-bold" type="button" disabled="">
+                                    <span style={{ marginRight: "0.4rem" }}
                                         className="spinner-border spinner-border-sm"
                                         role="status"
                                         aria-hidden="true"
