@@ -19,24 +19,8 @@ const Cart1 = () => {
   const notify2 = () => toast("Your Order Has Been Placed Successfully ");
   // remove items in cart functions
   const removeFunc = (del) => {
-    // const updatedCart = data.filter((rem) => rem.name !== del.name);
-    let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    
-    // Find the index of the item to remove
-    const indexToRemove = cartItems.findIndex((item) => item.name === del);
-    
-    // If the item is found, remove it
-    if (indexToRemove !== -1) {
-        cartItems.splice(indexToRemove, 1);
-        
-        // Update localStorage with the modified cart items
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        
-        // Optionally, update state or trigger any other necessary actions
-        // setData([...cartItems]); // Update state with the modified cart items
-    }
-   
-    // setData(updatedCart);
+    const updatedCart = data.filter((rem) => rem.name !== del.name);
+    setData(updatedCart);
     notify();
   };
 
@@ -82,15 +66,15 @@ const Cart1 = () => {
 
     setCount(count - 1);
   };
- 
-const navigate = useNavigate()
-useEffect(()=>{
-  if(!token){
-    return navigate("/login")
-  }
-},[])
 
- 
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!token) {
+      return navigate("/login")
+    }
+  }, [])
+
+
   return (
     <>
       <nav className="navbar shadow navbar-expand-lg navbar-light bg-light fixed-top">
@@ -156,9 +140,9 @@ useEffect(()=>{
               </h5>
             </div>
             <div className="pt-2">
-              <h5 className="d-flex align-items-center">Total Items Amount :  <span style={{marginTop:'2px',fontSize:'17px'}} className="material-symbols-outlined rupee-ico">
-                          currency_rupee
-                        </span>{totalAmount()} </h5>
+              <h5 className="d-flex align-items-center">Total Items Amount :  <span style={{ marginTop: '2px', fontSize: '17px' }} className="material-symbols-outlined rupee-ico">
+                currency_rupee
+              </span>{totalAmount()} </h5>
             </div>
           </div>
         ) : (
@@ -168,44 +152,44 @@ useEffect(()=>{
         <div className="pb-5 pt-3 non-map-card">
           {data && data.length > 0 ? (
             data.map((cartItem, index) => (
-              
-                <div key={index} className="card1 " style={{ height: "390px" }}>
-                  <img src={cartItem.url} className="card-img" alt="..." />
-                  <div className="card-b">
-                    <h5 className="card-title">{cartItem.name}</h5>
-                    <div className="pb-2 d-flex justify-content-between align-items-center">
-                      <h6 className="card-text title-txt">{cartItem.title}</h6>
-                      <div className=" d-flex justify-content-between align-items-center">
-                        <span className="material-symbols-outlined rupee-icon">
-                          currency_rupee
-                        </span>
-                        <h6 className="title-txt">{cartItem.cost} for one</h6>
-                      </div>
-                    </div>
 
-                    <div className="order-bt-card">
-                      <button
-                        onClick={() => removeFunc(cartItem)}
-                        className=" order-bt btn btn-danger "
-                      >
-                        <span className="material-symbols-outlined delete-icon">
-                          delete
-                        </span>
-                        Remove
-                      </button>
-                      <button
-                        onClick={() => placeOrder(cartItem)}
-                        className="order-bt btn btn-primary"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop"
-                      >
-                        Place Order
-                      </button>
+              <div key={index} className="card1 " style={{ height: "390px" }}>
+                <img src={cartItem.url} className="card-img" alt="..." />
+                <div className="card-b">
+                  <h5 className="card-title">{cartItem.name}</h5>
+                  <div className="pb-2 d-flex justify-content-between align-items-center">
+                    <h6 className="card-text title-txt">{cartItem.title}</h6>
+                    <div className=" d-flex justify-content-between align-items-center">
+                      <span className="material-symbols-outlined rupee-icon">
+                        currency_rupee
+                      </span>
+                      <h6 className="title-txt">{cartItem.cost} for one</h6>
                     </div>
                   </div>
+
+                  <div className="order-bt-card">
+                    <button
+                      onClick={() => removeFunc(cartItem)}
+                      className=" order-bt btn btn-danger "
+                    >
+                      <span className="material-symbols-outlined delete-icon">
+                        delete
+                      </span>
+                      Remove
+                    </button>
+                    <button
+                      onClick={() => placeOrder(cartItem)}
+                      className="order-bt btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      Place Order
+                    </button>
+                  </div>
                 </div>
-                 
-              
+              </div>
+
+
             ))
           ) : (
             <div
@@ -213,9 +197,9 @@ useEffect(()=>{
               className="text-center  d-flex justify-content-between align-items-center"
             >
               <div className="">
-                <h5 className="mb-3">No Items In The Cart </h5>
+                <h5 className="mb-3">'Oops' Cart Empty </h5>
                 <button className="btn btn-primary ">
-                  <Link to="/" className="text-white" style={{textDecoration:"none"}}> Go to Home</Link>
+                  <Link to="/" className="text-white" style={{ textDecoration: "none" }}> Go to Home</Link>
                 </button>
               </div>
             </div>
@@ -271,9 +255,8 @@ useEffect(()=>{
                             <span
                               disabled={item.counti === 1}
                               onClick={() => decreFunc(item)}
-                              className={`material-symbols-outlined countbt ${
-                                item.counti === 1 ? "disabled" : ""
-                              }`}
+                              className={`material-symbols-outlined countbt ${item.counti === 1 ? "disabled" : ""
+                                }`}
                             >
                               remove
                             </span>
@@ -315,9 +298,8 @@ useEffect(()=>{
                           <div className="counter-card">
                             <span
                               onClick={() => setSoup(soup - 1)}
-                              className={`material-symbols-outlined countbt ${
-                                soup === 0 ? "disabled" : ""
-                              }`}
+                              className={`material-symbols-outlined countbt ${soup === 0 ? "disabled" : ""
+                                }`}
                             >
                               remove
                             </span>

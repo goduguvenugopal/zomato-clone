@@ -180,6 +180,8 @@ const Login = () => {
                             </div>
                             <div className="form-floating mb-4">
                                 <input
+                                    minLength="6"
+                                    maxLength="8"
                                     required
                                     type={eyeOpen3 ? "password" : "text"}
                                     value={password}
@@ -190,10 +192,10 @@ const Login = () => {
                                 />
                                 <label htmlFor="floatingInput1">Password</label>
                                 <div className='eye-card'> {eyeOpen3 ? <span onClick={eyeFunc3} class="material-symbols-outlined">
-                                        visibility
-                                    </span> : <span onClick={eyeFunc3} class="material-symbols-outlined">
-                                        visibility_off
-                                    </span>}</div>
+                                    visibility
+                                </span> : <span onClick={eyeFunc3} class="material-symbols-outlined">
+                                    visibility_off
+                                </span>}</div>
                             </div>
 
                             {loginToggle ? <button style={{ height: "45px" }} className="btn btn-danger w-100 fw-bold" type="button" disabled="">
@@ -275,7 +277,8 @@ const Login = () => {
                                 <div className="form-floating mb-3">
                                     <input
                                         required
-
+                                        minLength="6"
+                                        maxLength="8"
                                         onChange={(e) => setPassword1(e.target.value)}
                                         type={eyeOpen ? "password" : "text"}
                                         className="form-control"
@@ -289,14 +292,15 @@ const Login = () => {
                                         visibility_off
                                     </span>}</div>
 
-                                    
+
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input
                                         required
                                         onChange={(e) => setPassword2(e.target.value)}
-
-                                        type = {eyeOpen1 ? "password" : "text"}
+                                        minLength="6"
+                                        maxLength="8"
+                                        type={eyeOpen1 ? "password" : "text"}
                                         className="form-control"
                                         id="float-Input"
                                         placeholder="name@example.com"
