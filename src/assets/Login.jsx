@@ -170,7 +170,7 @@ const Login = () => {
                                     required
                                     type="email"
 
-                                    value={email1}
+                                    value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="form-control"
                                     id="floatingInput"
@@ -184,7 +184,7 @@ const Login = () => {
                                     maxLength="8"
                                     required
                                     type={eyeOpen3 ? "password" : "text"}
-                                    value={password1}
+                                    value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="form-control"
                                     id="floatingInput1"
@@ -265,7 +265,7 @@ const Login = () => {
                                 <div className="form-floating mb-3 mt-2">
                                     <input
                                         required
-
+value={email1}
                                         onChange={(e) => setEmail1(e.target.value)}
                                         type="email"
                                         className="form-control"
@@ -276,6 +276,7 @@ const Login = () => {
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input
+                                    value={password1}
                                         required
                                         minLength="6"
                                         maxLength="8"
@@ -297,6 +298,7 @@ const Login = () => {
                                 <div className="form-floating mb-3">
                                     <input
                                         required
+                                        value={password2}
                                         onChange={(e) => setPassword2(e.target.value)}
                                         minLength="6"
                                         maxLength="8"
