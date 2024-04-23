@@ -6,7 +6,7 @@ import { states } from "./data";
 import "../App.css";
 
 const SearchSection = () => {
-  const [state, setStaet] = useState(states);
+  const [state, setState] = useState(states);
   const [text, setText] = useState("");
   const [location, setLocation] = useState("");
   const [data, setData] = useState([]);
@@ -18,7 +18,7 @@ const SearchSection = () => {
   const id = "de66da03";
   const url = `https://api.edamam.com/search?q=${text}&app_id=${id}&app_key=${accessKey}&from=0&to=100&calories=591-722&health=alcohol-free`;
 
-  // data fetch function
+  // data fetching function through API
   const fetchFunction = async () => {
     try {
       const response = await axios.get(url);
@@ -64,6 +64,7 @@ const SearchSection = () => {
 
     setTimeout(() => {
       setToggle(false);
+      
     }, 1500);
   };
 
