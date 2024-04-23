@@ -170,7 +170,7 @@ const Login = () => {
                                     required
                                     type="email"
 
-                                    value={email}
+                                    value={email1}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="form-control"
                                     id="floatingInput"
@@ -184,7 +184,7 @@ const Login = () => {
                                     maxLength="8"
                                     required
                                     type={eyeOpen3 ? "password" : "text"}
-                                    value={password}
+                                    value={password1}
                                     onChange={(e) => setPassword(e.target.value)}
                                     className="form-control"
                                     id="floatingInput1"
