@@ -339,7 +339,7 @@ value={email1}
                                         Content Policies
                                     </span>
                                 </span>
-                                {!signToggle ? <button style={{ height: "45px" }} className=" mt-3 btn btn-primary w-100 fw-bold" type="button" disabled="">
+                                {signToggle ? <button style={{ height: "45px" }} className=" mt-3 btn btn-primary w-100 fw-bold" type="button" disabled="">
                                     <span style={{ marginRight: "0.4rem" }}
                                         className="spinner-border spinner-border-sm"
                                         role="status"
