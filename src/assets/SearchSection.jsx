@@ -68,6 +68,9 @@ const SearchSection = () => {
     }, 1500);
   };
 
+
+
+  
   return (
     <>
       {toggle ? (
