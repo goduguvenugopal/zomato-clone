@@ -21,11 +21,12 @@ const Profile = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [zoomin, setZoomin] = useState(false);
-
   const [toggle1, setToggle1] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const [toggle3, setToggle3] = useState(false);
-
+  
+  
+  
   const toggleFunc1 = () => {
     setToggle1(true);
     setToggle2(false);
@@ -50,7 +51,7 @@ const Profile = () => {
     try {
       setUpdate(true)
       const response = await fetch(
-        "https://server-axck.onrender.com/profile",
+        "https://zomato-server-z2lm.onrender.com/profile",
         {
           method: "POST",
           headers: {
@@ -62,9 +63,9 @@ const Profile = () => {
 
       if (response.ok) {
         notify();
-        setName(" ");
-        setPhone(" ");
-        setAddress(" ");
+        setName("");
+        setPhone("");
+        setAddress("");
         setText({ name, phone, address });
         setUpdate(false)
         var data = { name: name, phone: phone, address: address };
@@ -90,6 +91,8 @@ const Profile = () => {
       reader.onloadend = () => {
         localStorage.setItem("image", reader.result)
         setImage(reader.result);
+       
+        
       };
       reader.readAsDataURL(file);
     }

@@ -34,7 +34,7 @@ const Login = () => {
         e.preventDefault()
         setLoginToggle(true)
         try {
-            const response = await axios.post("https://server-axck.onrender.com/login", { email, password })
+            const response = await axios.post("https://zomato-server-z2lm.onrender.com/login", { email, password })
 
             setToken(response.data.token)
             localStorage.setItem("token", JSON.stringify(response.data.token))
@@ -63,7 +63,7 @@ const Login = () => {
         setSignToggle(true)
 
         try {
-            await axios.post("https://server-axck.onrender.com/register", userDetails);
+            await axios.post("https://zomato-server-z2lm.onrender.com/register", userDetails);
 
             setToggle(true);
             notify2();
